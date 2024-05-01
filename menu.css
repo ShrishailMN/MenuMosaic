@@ -34,16 +34,27 @@ table {
     background-color: rgb(164, 165, 160);
     height: 30px;
     color: rgb(0, 0, 0);
+    
+}
+a{
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+}
+a:hover{
+    color: rgb(255, 242, 0);
 }
 
 ul {
     list-style: none;
     padding: 0;
+    
 }
 
 li {
     display: inline-block;
     margin-right: 30px;
+    color: white;
+    
 }
 
 * {
@@ -55,3 +66,4 @@ body {
     background-size: cover;
     background-position: center;
 }
+
