@@ -1,107 +1,112 @@
 <html>
 <head>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+	<script src="menu.js"></script>
+    <script src="controller.js"></script>
 	<style>
-		table{
-			border: 1px solid black;
-			animation-name: t11;
-			animation-duration: 5s;
+table{
+    border: 1px solid black;
+    /* animation-name: t11; */
+    /* animation-duration: 5s; */
 
-		}
-		.t1{
-			margin-left: 300px;
-			background-color: lightcoral;
-		}
-		.t2{
-			margin-left: 300px;
-			background-color: springgreen;
-		}
-		/*footer{
-			background-color: powderblue;
-			font-family: georgia;
-			height: 30px;
+}
+.t1{
+    margin-left: 300px;
+    background-color: lightcoral;
+}
+.t2{
+    margin-left: 300px;
+    background-color: springgreen;
+	/* animation-name: move2;
+    animation-duration:5s; */
+    left:45%;
+    top:45%;
+}
+/* footer{
+    background-color: powderblue;
+    font-family: georgia;
+    height: 30px;
 
-		}*/
-		header{
-			background-color:powderblue;
-			height: 30px;
-		}
-		.div1{
-			float: left;
-			background-color: yellow;
-			width: 50%;
-		}
-		.div2{
-			float: right;
-			background-color: orange;
-			width: 50%;
-			column-gap: 599%;
-		}
-		.logo{
-			padding-left: 20px;
-			padding-top: 5px;
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-			background-color:aqua;
-		}
-		ul{
-			list-style: none;
-			padding: 0;
-		}
-		li{
-			display: inline-block;
-			margin-right: 15px;
-		}
-		*{
-			margin: 0;
-		}
-		body{
-			background-repeat: no-repeat;
-			background-size:100%;
-		}
-	
-		@keyframes t11{
-            0%{
-                left:0%;
-                /* background-color: red; */
-                /* top:0%; */
-                /* rotate:360deg; */
-				left: 35%;
-				background-color: red;
-            }
-            50%{
-                left: 55%;
-                /* background-color: purple; */
-                /* top:0%; */
-            }
-            100%{
-                left:80%;
-                /* background-color: blue; */
-                /* top:70%;     */
-            }
-        }
+} */
+/* header{
+    background-color:rgb(199, 7, 7);
+    height: 30px;
+} */
+.div1{
+    float: left;
+    background-color: yellow;
+    width: 50%;
+}
+.div2{
+    float: right;
+    background-color: orange;
+    width: 50%;
+    column-gap: 599%;
+}
+.logo{
+    padding-left: 20px;
+    padding-top: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color:rgb(164, 165, 160);
+	height: 30px;
+	color: rgb(0, 0, 0);
+}
+ul{
+    list-style: none;
+    padding: 0;
+}
+li{
+    display: inline-block;
+    margin-right: 30px;
+}
+*{
+    margin: 0;
+}
+body{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
 
-	</style>
+/* @keyframes t11{
+    0%{
+        left:0%;
+        background-color: red;
+        top:0%;
+        rotate:360deg;
+        left: 35%;
+        background-color: red;
+    }
+    50%{
+        left: 55%;
+        background-color: purple;
+        top:0%;
+    }
+    100%{
+        left:80%;
+        background-color: blue;
+        top:70%;    
+    }
+} */
+</style>
 </head>
-<body background="https://media.istockphoto.com/id/1309307880/photo/uncooked-pasta-and-ingredients-frame-copy-space.webp?b=1&s=170667a&w=0&k=20&c=Cp7JNvbH2awa03VLrV-UtGwmOoFxk8RB3hhR9lBb_Fo=">
-	<header>
+<body background="vegetables-set-left-black-slate.jpg">
 	
-	<div class="logo"><b>SELF OBSSESSED CAFE</b>
+	<div class="logo">
+		<b>SELF OBSSESSED CAFE</b>
 		<ul>
-			<b><li>HOME</li>
-			<li>ABOUT</li>
-			<li>CONTACT US</li></b>
+		  <b><li><a href="menu.html">HOME</a></li>
+		  <li><a href="About.html">ABOUT</a></li>
+		  <li><a href="Contact.html">CONTACT US</a></li></b>
 		</ul>
-	</div>
-</header>
+	  </div>
+	  <br>
 
-<font face="georgia"><table bgcolor="79E164">                                    
+<font face="georgia"><p><table bgcolor="79E164">                                    
 	<tr>                                                                                  
-	<thead><th colspan="2"><b><i><u>DRINKS </u></i><hr></b></th></thead>                 
-
-		
-
-		<br>
+	<thead><th colspan="2"><b><i>DRINKS</i></b></th></thead>                 
 		</tr>
 		<tbody><tr>
 			<center><th><b>JUICES</b></th></center>
@@ -175,9 +180,6 @@
 				<th><b>GREEN APPLE</b></th>
 				<th><b>99/-</b></th>
 			</tr>
-
-
-
 		</table>
 		<table bgcolor="D84CE3">
 			<tr>
@@ -194,7 +196,16 @@
 			<tr>
 				<th><b>RED BULL</b></th>
 				<th><b>70/-</b></th>
-			</tr></table></tbody>
-<br>
-<br>
+			</tr></table>
+		</tbody>
+<script>
+			var app = angular.module('menuApp', []);
+		
+			app.controller('MenuController', function($scope, $location) {
+			  // Function to navigate to a specific page
+			  $scope.navigateTo = function(page) {
+				$location.path('/' + page); // Redirect to the specified page
+			  };
+			});
+</script>
 
