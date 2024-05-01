@@ -1,0 +1,57 @@
+table {
+    border: 1px solid black;
+}
+
+.t1 {
+    margin-left: 300px;
+    background-color: lightcoral;
+}
+
+.t2 {
+    margin-left: 300px;
+    background-color: springgreen;
+}
+
+.div1 {
+    float: left;
+    background-color: yellow;
+    width: 50%;
+}
+
+.div2 {
+    float: right;
+    background-color: orange;
+    width: 50%;
+    column-gap: 599%;
+}
+
+.logo {
+    padding-left: 20px;
+    padding-top: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(164, 165, 160);
+    height: 30px;
+    color: rgb(0, 0, 0);
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    display: inline-block;
+    margin-right: 30px;
+}
+
+* {
+    margin: 0;
+}
+
+body {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
