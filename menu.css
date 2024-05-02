@@ -24,6 +24,23 @@ table {
     width: 50%;
     column-gap: 599%;
 }
+.div3{
+    display: inline-block;
+    width: 45%; /* Adjust width as needed */
+    vertical-align: top; /* Align content at the top of the divs */
+    margin: 10px; /* Add margin for spacing */
+    border: 1px solid rgb(255,255,0); /* Optional: border for visibility */
+    box-sizing: border-box;
+}
+.div4{
+    display: inline-block;
+    width: 45%; 
+    vertical-align: top; 
+    margin: 10px; 
+    border: 1px solid rgb(255,255,0); 
+    box-sizing: border-box;
+    background-color: rgb(255,255,0);
+}
 
 .logo {
     padding-left: 20px;
