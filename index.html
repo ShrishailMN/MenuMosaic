@@ -6,19 +6,44 @@
 	<script src="menu.js"></script>
     <script src="controller.js"></script>
 	<link rel="stylesheet" href="menu.css">
+	<style>
+	h1 {
+            overflow: hidden; /* Hide overflowing content */
+            white-space: nowrap; /* Prevent text from wrapping */
+            animation: slideInAnimation 2s forwards; /* Apply animation */
+            animation-delay: 1.5s; /* Delay the animation */
+            opacity: 0; /* Initially hide the text */
+        }
+        @keyframes slideInAnimation {
+            from {
+                transform: translateX(-20%); /* Start off-screen to the left */
+                opacity: 0; /* Start with opacity 0 */
+            }
+            to {
+                transform: translateX(0); /* End at the original position */
+                opacity: 1; /* End with opacity 1 */
+            }
+        }
+	h4{
+			overflow: hidden; /* Hide overflowing content */
+            white-space: nowrap; /* Prevent text from wrapping */
+            animation: slideInAnimation 2s forwards; /* Apply animation */
+            animation-delay: 2s; /* Delay the animation */
+            opacity: 0; /* Initially hide the text */
+	}
+	</style>
 </head>
 <body background="vegetables-set-left-black-slate.jpg">
 	
 	<div class="logo">
-		<b><a href="menu.html">OBSSESSED CAFE</b>
+		<b><a href="menu.html">MENU MOSAIC</b>
 		<ul>
 		  <b><li><a href="menu.html">HOME</a></li>
 		  <li><a href="About.html">ABOUT</a></li>
 		  <li><a href="Contact.html">CONTACT US</a></li></b>
 		</ul>
 	  </div>
-	  <br>
-<h1 style="margin-top: 16%; margin-left: 5%; color: rgb(238, 238, 88); font-size:xxx-large;">Welcome Back to<br> MenuMosaic</h1>
+<h1 style="margin-top: 12%; margin-left: 5%; color: rgb(238, 238, 88); font-size:xxx-large;">Welcome Back to<br> MenuMosaic</h1>
 <h4 style="margin-left: 5%; color: rgb(238, 238, 88);">Discover a tantalizing tapestry <br>of flavors in our Menu Mosaic.</h4>
 
 
