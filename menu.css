@@ -44,23 +44,24 @@ table {
 
 .logo {
     padding-left: 20px;
-    padding-top: 5px;
+    padding-top: px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgb(164, 165, 160);
+    /* background-color: rgb(164, 165, 160); */
     height: 30px;
     color: rgb(0, 0, 0);
-    
+    margin-right: 30%;
+    margin-top: 50px;
+    margin-left: 5%;
 }
 a{
-    color: rgb(0, 0, 0);
+    color: rgb(255, 242, 0);
     text-decoration: none;
 }
 a:hover{
     color: rgb(255, 242, 0);
 }
-
 ul {
     list-style: none;
     padding: 0;
@@ -73,12 +74,15 @@ li {
     color: white;
     
 }
+li:hover{
+    transform: scale(0.98);
+}
 
 * {
     margin: 0;
 }
 
-body {
+body{
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
