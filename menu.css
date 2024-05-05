@@ -53,10 +53,10 @@ table {
     color: rgb(0, 0, 0);
     margin-right: 30%;
     margin-top: 50px;
-    margin-left: 5%;
+    margin-left: 4%;
 }
 a{
-    color: rgb(255, 242, 0);
+    color: rgb(238, 238, 88);
     text-decoration: none;
 }
 a:hover{
@@ -87,4 +87,5 @@ body{
     background-size: cover;
     background-position: center;
 }
+
 
