@@ -31,6 +31,18 @@
         text-justify: auto;
         color: rgb(238, 238, 88);
         text-align: justify;
+        animation-name: animate1;
+        animation: animate1 5s forwards;
+    }
+    @keyframes animate1 {
+        from {
+                transform: translateX(50%); /* Start off-screen to the left */
+                opacity: 0; /* Start with opacity 0 */
+            }
+            to {
+                transform: translateX(0); /* End at the original position */
+                opacity: 1; /* End with opacity 1 */
+            }
     }
     .container2{
         height: 4%;
