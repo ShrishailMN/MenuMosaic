@@ -1,123 +1,185 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
-	<script src="menu.js"></script>
-    <script src="controller.js"></script>
-	<link rel="stylesheet" href="menu.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="menu.css">
+    <title>MenuMosaic | Menu</title>
+    <style>
+    body {
+            font-family: 'Poppins', sans-serif;
+            /* background-image: url(''); Replace 'background-image.jpg' with your actual image path */
+            background-size: cover;
+            background-attachment: fixed; /* Fix background image */
+            margin: 0;
+            padding: 0;
+    }
+    .container1{
+        height: 4%;
+        width: 4%;
+        margin-left: 5%;
+        margin-top: 2%;
+        animation: move1 5s forwards; /* Apply animation */
+        animation-delay: 0s;
+        display: inline-block;
+    }
+    h4{
+        display: inline-block;
+        margin-left: 10%;
+        vertical-align: top;
+        margin-top: 5%;
+        text-justify: auto;
+        color: rgb(238, 238, 88);
+        text-align: justify;
+    }
+    .container2{
+        height: 4%;
+        width: 4%;
+        margin-left: 20%;
+        margin-top: 2%;
+        animation: move2 5s forwards; /* Apply animation */
+        animation-delay: 0s;
+        display: inline-block;
+    }
+    .text1{
+        display: inline-block;
+        margin-left: 10%;
+        vertical-align: top;
+        margin-top: 5%;
+        text-align: justify;
+        color: rgb(238, 238, 88);
+    }
+    .container3{
+        height: 4%;
+        width: 4%;
+        margin-left: 5%;
+        margin-top: 2%;
+        animation: move3 5s forwards; /* Apply animation */
+        animation-delay: 0s;
+    }
+    .container4{
+        height: 4%; 
+        width: 4%;
+        margin-left: 20%;
+        margin-top: 2%;
+        animation: move4 5s forwards; /* Apply animation */
+        animation-delay: 0s;
+    }
+    .logo1 {
+        
+        padding-left: 20px;
+        padding-top: px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        /* background-color: rgb(164, 165, 160); */
+        height: 30px;
+        color: rgb(0, 0, 0);
+        margin-right: 30%;
+        margin-top: 50px;
+        margin-left: 4%;
+    }
+    h5{
+        margin-left: 7%;
+        animation: move1 5s forwards; /* Apply animation */
+        animation-delay: 0s;
+        color: rgb(238, 238, 88);
+    }
+    .rh5{
+        margin-left: 22%;
+        animation: move22 5s forwards; /* Apply animation */
+        animation-delay: 0s;
+    }
+    .srh5{
+        margin-left: 5.9%;
+    }
+    .drh5{
+        margin-left: 20.9%;
+        animation: move22 5s forwards; /* Apply animation */
+        animation-delay: 0s;
+    }
+    img{
+        border: 2px solid rgb(0, 0, 0);
+    }
+    @keyframes move1 {
+            from {
+                transform: translateX(-90%); /* Start off-screen to the left */
+                opacity: 0; /* Start with opacity 0 */
+            }
+            to {
+                transform: translateX(0); /* End at the original position */
+                opacity: 1; /* End with opacity 1 */
+            }
+        }
+        @keyframes move2 {
+            from {
+                transform: translateX(90%); /* Start off-screen to the left */
+                opacity: 0; /* Start with opacity 0 */
+            }
+            to {
+                transform: translateX(0); /* End at the original position */
+                opacity: 1; /* End with opacity 1 */
+            }
+        }
+        @keyframes move3 {
+            from {
+                transform: translateX(-90%); /* Start off-screen to the left */
+                opacity: 0; /* Start with opacity 0 */
+            }
+            to {
+                transform: translateX(0); /* End at the original position */
+                opacity: 1; /* End with opacity 1 */
+            }
+        }
+        @keyframes move4 {
+            from {
+                transform: translateX(90%); /* Start off-screen to the left */
+                opacity: 0; /* Start with opacity 0 */
+            }
+            to {
+                transform: translateX(0); /* End at the original position */
+                opacity: 1; /* End with opacity 1 */
+            }
+        }
+        @keyframes move22 {
+            from {
+                transform: translateX(30%); /* Start off-screen to the left */
+                opacity: 0; /* Start with opacity 0 */
+            }
+            to {
+                transform: translateX(0); /* End at the original position */
+                opacity: 1; /* End with opacity 1 */
+            }
+        }
+    </style>
 </head>
 <body background="vegetables-set-left-black-slate.jpg">
-	
-	<div class="logo">
-		<b><a href="menu.html">OBSSESSED CAFE</b>
+    <div class="logo1">
+		<b><a href="menu.html">MENU MOSAIC</b>
 		<ul>
 		  <b><li><a href="menu.html">HOME</a></li>
 		  <li><a href="About.html">ABOUT</a></li>
 		  <li><a href="Contact.html">CONTACT US</a></li></b>
 		</ul>
 	  </div>
-	  <br>
-<div class="div3">
-<font face="georgia"><p><table bgcolor="79E164">                                    
-	<tr>                                                                                  
-	<thead><th colspan="2" bgcolor="lawngreen"><b>DRINKS</b></th></thead>                 
-		</tr>
-		<tbody>
-		<tr>
-			<th><b>MANGO JUICE</b></th>
-			<th><b>40/-</b></th>
-		</tr>
-		<tr>
-			<th><b>ORANGE JUICE</b></th>
-			<th><b> 50/-</b></th>
-		</tr>
-		<tr>
-			<th><b>PINEAPPLE JUICE</b></th>
-			<th><b>60/-</b></th>
-		</tr>
-	</table> 
-	<br>
-	<table class="t1" animation="t11">
-		<tr>
-			<th colspan="2" bgcolor="coral" ><b>CHINESE</b></th>
-		</tr>
-		<tr>
-			<th><b>MANCHURIAN</b></th>
-			<th><b>149/-</b></th>
-		</tr>
-		<tr>
-			<th><b>NOODLES</b></th>
-			<th><b>170/-</b></th>
-		</tr>
-		<tr>
-			<th><b>PASTA</b></th>
-			<th><b>150/-</b></th>
-		</tr>
-	</table>
-
-	
-	
-	<table bgcolor="E1A364">
-		<tr>
-		<th colspan="2" bgcolor="E58C2D"><b>COFFEE</b></th>
-		</tr>
-		
-		<tr>
-			<th><b>COLD COFFEE</b></th>
-			<th><b>120/-</b></th>
-		</tr>
-		<tr>
-			<th><b>DALGOAN COFFEE</b></th>
-			<th><b>150/-</b></th>
-		</tr>
-		<tr>
-			<th><b>COFFEE</b></th>
-			<th><b>20/-</b></th>
-		</tr>
-	</table>
-		<br>
-		<table class="t2">
-			<tr>
-				<th colspan="2" bgcolor="lawngreen">MOCKTAILS</th>
-			</tr>
-			<tr>
-				<th><b>KIWI</b></th>
-				<th><b>99/-</b></th>
-			</tr>
-			<tr>
-				<th><b>BLUE BERRY</b></th>
-				<th><b>99/-</b></th>
-			</tr>
-			<tr>
-				<th><b>GREEN APPLE</b></th>
-				<th><b>99/-</b></th>
-			</tr>
-		</table>
-		<table bgcolor="D84CE3">
-			<tr>
-				<th colspan="2" bgcolor="7D1085"><b>COLD DRINKS</b></th>
-			</tr>
-			<tr>
-				<th><b>COCA COLA</b></th>
-				<th><b>50/-</b></th>
-			</tr>
-			<tr>
-				<th><b>PEPSI</b></th>
-				<th><b>60/-</b></th>
-			</tr>
-			<tr>
-				<th><b>RED BULL</b></th>
-				<th><b>70/-</b></th>
-			</tr></table>
-		</tbody>
-</p></font></div>
-<div class="div4">
-		<h2>Special Offer!</h2>
-		<p>Get 20% off on all beverages this weekend.</p>
-		<p>Buy 1 Get 1 Free on select appetizers.</p>
-		<p>Enjoy a complimentary dessert with every main course order.</p>
-</div>
-
-
-
-
+    <div class="container1">
+        <img src="fries/mpizza.jpeg" alt="Pizza" style="border-radius: 50%;" height="250%" width="250%";>
+    </div>
+    <h4>Explore pizzas, burgers, sushi, ramen, and more.<br> Satisfy cravings quickly with our flavorful options.<br> Convenient and delicious bites for every taste.</h4>
+    <h5>Quick Bites</h5>
+    <div class="container2">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMgl0PH_duNUZyou7BKhX6IkfNNCkAL1WgfVor38fvf2KkFzAt3uRwkiAsdO17JzupE18&usqp=CAU" alt="Pizza" style="border-radius: 50%;" height="250%" width="250%";>
+    </div>
+    <h4 class="text1">Revitalize with our refreshing menu.<br> From fruit-infused drinks to energizing teas, <br>our beverages are perfect for rejuvenating your day. </h4>
+    <h5 class="rh5">Refreshers</h5>
+    <div class="container3">
+        <img src="https://img.fixthephoto.com/blog/images/gallery/news_preview_mob_image__preview_13594.jpg" alt="Pizza" style="border-radius: 50%;" height="250%" width="250%";>
+    </div>
+    <h4> Warm up with our comforting selection. From hearty<br> broths to creamy delights, our soups are crafted to<br> soothe and satisfy.</h4>
+    <h5 class="srh5">Simmering Bowls</h5>
+    <div class="container4">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGD1phTag8w4XJTLV90soo9CVOrzctRL86jg&usqp=CAU" alt="Pizza" style="border-radius: 50%;" height="250%" width="250%";>
+    </div>
+    <h5 class="drh5">Dessert Delights</h5>
+</body>
+</html>
