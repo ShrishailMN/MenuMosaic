@@ -4,6 +4,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="menu.css">
 <title>About Us - Menu Mosaic</title>
 <style>
 /* Global styles */
@@ -15,7 +16,32 @@ body {
     margin: 0;
     padding: 0;
 }
+.logo1 {
+        
+        padding-left: 20px;
+        padding-top: px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        /* background-color: rgb(164, 165, 160); */
+        height: 30px;
+        color: rgb(0, 0, 0);
+        /* margin-right: 30%; */
+        margin-top: 50px;
+        margin-left: 36.9%;
+    }
+    ul {
+    list-style: none;
+    padding: 0;
+    
+}
 
+li {
+    display: inline-block;
+    margin-right: 30px;
+    color: rgb(238,238, 88);
+    
+}
 .container {
     max-width: 800px;
     margin: 20px auto;
@@ -34,6 +60,13 @@ h1, h2, p {
     border-radius: 10px;
     margin-bottom: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+a{
+    color: rgb(238,238, 88);
+    text-decoration: none;
+}
+li:hover{
+    transform: scale(0.98);
 }
 
 /* Map styles */
@@ -66,9 +99,19 @@ h1, h2, p {
     transform: translateY(-3px);
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
 }
+.contact-info{
+    color: black;
+}
 </style>
 </head>
 <body background="vegetables-set-left-black-slate.jpg">
+    <div class="logo1">
+        <ul>
+          <b><li><a href="index.html">HOME</a></li>
+          <li><a href="About.html">ABOUT</a></li>
+          <li><a href="Contact.html">CONTACT US</a></li></b>
+        </ul>
+        </div>
 
 <div class="container">
     <br>
@@ -84,7 +127,7 @@ h1, h2, p {
 
     <h2>Contact Us</h2>
     <div class="contact-info">
-        <p><strong>Phone:</strong> <a href="tel:+911231231231">+91-1231231231</a></p>
+        <p><strong>Phone:</strong>+91-1231231231</a></p>
     </div>
 
     <h2>Follow Us</h2>
