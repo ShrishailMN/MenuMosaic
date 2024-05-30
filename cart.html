@@ -62,6 +62,17 @@
     font-weight: bold;
     margin-top: 20px;
   }
+  .add-to-cart {
+    background-color: rgb(238, 238, 88);
+    color: #000000;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .add-to-cart:hover {
+    background-color: rgb(255, 162, 0);
+  }
 </style>
 </head>
 <body background="vegetables-set-left-black-slate.jpg">
@@ -79,6 +90,8 @@
     <h1>My Cart</h1>
     <ul id="cart-items"></ul>
     <div class="cart-total" id="cart-total">Total: ₹0</div>
+    <br>
+    <center><button class="add-to-cart" data-item="Burger" data-price="9.99">Place Order!</button></center>
   </div>
 
   <!-- Script for displaying cart items -->
