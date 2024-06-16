@@ -8,41 +8,34 @@
 <style>
   body {
     font-family: 'Poppins', sans-serif;
-    /* background-image: url(''); Replace 'background-image.jpg' with your actual image path */
     background-size: cover;
-    background-attachment: fixed; /* Fix background image */
+    background-attachment: fixed;
     margin: 0;
     padding: 0;
   }
   .logo1 {
-        
-        padding-left: 20px;
-        padding-top: px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        /* background-color: rgb(164, 165, 160); */
-        height: 30px;
-        color: rgb(0, 0, 0);
-        /* margin-right: 30%; */
-        margin-top: 50px;
-        margin-left: 36.9%;
-    }
+    padding-left: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 50px;
+    margin-left: 36.9%;
+  }
   .menu-container {
     max-width: 800px;
     margin: 50px auto;
-    background-color: rgb(238, 238, 88); 
+    background-color: rgb(238, 238, 88);
     border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
   }
   h1 {
-    color: rgb(0, 0, 0); /* Text color in RGB(238, 238, 88) */
+    color: rgb(0, 0, 0);
     text-align: center;
     margin-bottom: 30px;
   }
   ul {
-    list-style-type: none; /* Remove default list style */
+    list-style-type: none;
     padding: 0;
     margin: 0;
   }
@@ -73,77 +66,76 @@
   .add-to-cart:hover {
     background-color: rgb(255, 162, 0);
   }
-  span{  
+  span {  
     color: black;
   }
   @media (max-width: 768px) {
-  .menu-container {
-    width: 90%; /* Adjust width for smaller screens */
-    margin: 20px auto; /* Center the menu container */
+    .menu-container {
+      width: 90%;
+      margin: 20px auto;
+    }
   }
-}
-
 </style>
 </head>
 <body background="vegetables-set-left-black-slate.jpg">
   <div class="logo1">
     <ul>
-      <b><li><a href="index.html">HOME</a></li>
+      <b>
+        <li><a href="index.html">HOME</a></li>
         <li><a href="menu.html">MENU</a></li>
-        <li><a href="About.html">ABOUT</a></li></b>
+        <li><a href="About.html">ABOUT</a></li>
+        <li><a href="cart.html">CART</a></li>
+      </b>
     </ul>
-    </div>
+  </div>
   <div class="menu-container">
     <h1>Simmering Bowls</h1>
     <ul>
       <li class="dish">
-        <img src="https://images.pexels.com/photos/4103375/pexels-photo-4103375.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Burger Icon">
+        <img src="https://images.pexels.com/photos/4103375/pexels-photo-4103375.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Tomato Basil Soup">
         <div class="dish-info">
           <span>Tomato Basil Soup</span>
         </div>
-        <span style="margin-right: 35%;">150/-</span><button class="add-to-cart" data-item="Burger" data-price="9.99">Add to Cart</button>
+        <span style="margin-right: 35%;">150/-</span><button class="add-to-cart" data-item="Tomato Basil Soup" data-price="150">Add to Cart</button>
       </li>
       <li class="dish">
-        <img src="https://images.pexels.com/photos/14998942/pexels-photo-14998942/free-photo-of-meatball-dumplings.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Burger Icon">
+        <img src="https://images.pexels.com/photos/14998942/pexels-photo-14998942/free-photo-of-meatball-dumplings.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Chicken Noodle Soup">
         <div class="dish-info">
           <span>Chicken Noodle Soup</span>
         </div>
-        <span style="margin-right: 35%;">120/-</span><button class="add-to-cart" data-item="Burger" data-price="9.99">Add to Cart</button>
+        <span style="margin-right: 35%;">120/-</span><button class="add-to-cart" data-item="Chicken Noodle Soup" data-price="120">Add to Cart</button>
       </li>
       <li class="dish">
-        <img src="https://images.pexels.com/photos/1707270/pexels-photo-1707270.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Burger Icon">
+        <img src="https://images.pexels.com/photos/1707270/pexels-photo-1707270.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Creamy Mushroom Soup">
         <div class="dish-info">
           <span>Creamy Mushroom Soup</span>
         </div>
-        <span style="margin-right: 35%;">130/-</span><button class="add-to-cart" data-item="Burger" data-price="9.99">Add to Cart</button>
+        <span style="margin-right: 35%;">130/-</span><button class="add-to-cart" data-item="Creamy Mushroom Soup" data-price="130">Add to Cart</button>
       </li>
       <li class="dish">
-        <img src="https://images.pexels.com/photos/19899290/pexels-photo-19899290/free-photo-of-top-view-of-a-green-cream-soup-with-mushrooms-on-a-wooden-table.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Burger Icon">
+        <img src="https://images.pexels.com/photos/19899290/pexels-photo-19899290/free-photo-of-top-view-of-a-green-cream-soup-with-mushrooms-on-a-wooden-table.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Minestrone Soup">
         <div class="dish-info">
           <span>Minestrone Soup</span>
         </div>
-        <span style="margin-right: 35%;">150/-</span><button class="add-to-cart" data-item="Burger" data-price="9.99">Add to Cart</button>
+        <span style="margin-right: 35%;">150/-</span><button class="add-to-cart" data-item="Minestrone Soup" data-price="150">Add to Cart</button>
       </li>
       <li class="dish">
-        <img src="https://images.pexels.com/photos/6120506/pexels-photo-6120506.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Burger Icon">
+        <img src="https://images.pexels.com/photos/6120506/pexels-photo-6120506.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Lentil Soup">
         <div class="dish-info">
           <span>Lentil Soup</span>
         </div>
-        <span style="margin-right: 35%;">140/-</span>
-        <button class="add-to-cart" data-item="Burger" data-price="9.99">Add to Cart</button>
+        <span style="margin-right: 35%;">140/-</span><button class="add-to-cart" data-item="Lentil Soup" data-price="140">Add to Cart</button>
       </li>
       <li class="dish">
-        <img src="https://images.pexels.com/photos/5605574/pexels-photo-5605574.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Burger Icon">
+        <img src="https://images.pexels.com/photos/5605574/pexels-photo-5605574.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Butternut Squash Soup">
         <div class="dish-info">
           <span>Butternut Squash Soup</span>
         </div>
-        <span style="margin-right: 35%;">120/-</span><button class="add-to-cart" data-item="Burger" data-price="9.99">Add to Cart</button>
+        <span style="margin-right: 35%;">120/-</span><button class="add-to-cart" data-item="Butternut Squash Soup" data-price="120">Add to Cart</button>
       </li>
     </ul>
   </div>
-</body>
 
-  <!-- Script for adding items to cart -->
   <script>
     const addToCartButtons = document.querySelectorAll('.add-to-cart');
     addToCartButtons.forEach(button => {
@@ -155,10 +147,11 @@
     });
 
     function addToCart(name, price) {
-      // Here you can implement adding items to cart logic
-      console.log(`Added ${name} to cart for $${price}`);
-      // You can also update cart total, display a message, etc.
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cart.push({ name, price });
+      localStorage.setItem('cart', JSON.stringify(cart));
+      alert(`${name} added to cart`);
     }
   </script>
-
+</body>
 </html>
