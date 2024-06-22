@@ -89,6 +89,23 @@
     font-size: 18px;
     color: black;
   }
+  .menu-button {
+    display: block;
+    margin: 20px auto;
+    background-color: rgb(238, 238, 88);
+    color: #000000;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    width: 11%;
+  }
+  .menu-button:hover {
+    background-color: rgb(255, 162, 0);
+    color: black;
+    
+  }
 </style>
 </head>
 <body background="vegetables-set-left-black-slate.jpg">
@@ -126,8 +143,14 @@
       if (cart.length === 0) {
         const emptyMessage = document.createElement('div');
         emptyMessage.className = 'empty-cart-message';
-        emptyMessage.textContent = 'Please add some items to the cart.';
+        emptyMessage.textContent = 'Please add some items to the cart!!';
         cartItemsContainer.appendChild(emptyMessage);
+        
+        const menuButton = document.createElement('a');
+        menuButton.href = 'menu.html';
+        menuButton.className = 'menu-button';
+        menuButton.textContent = 'Go to Menu';
+        cartItemsContainer.appendChild(menuButton);
       } else {
         let total = 0;
         cart.forEach((item, index) => {
