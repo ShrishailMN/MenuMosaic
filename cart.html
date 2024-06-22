@@ -6,7 +6,6 @@
 <title>Cart | Menu Mosaic</title>
 <link rel="stylesheet" href="menu.css">
 <style>
-
     *{
         color: black;
     }
@@ -85,6 +84,11 @@
   .add-to-cart:hover {
     background-color: rgb(255, 162, 0);
   }
+  .empty-cart-message {
+    text-align: center;
+    font-size: 18px;
+    color: black;
+  }
 </style>
 </head>
 <body background="vegetables-set-left-black-slate.jpg">
@@ -119,21 +123,28 @@
 
       cartItemsContainer.innerHTML = '';
 
-      let total = 0;
-      cart.forEach((item, index) => {
-        const listItem = document.createElement('li');
-        listItem.className = 'cart-item';
-        listItem.innerHTML = `
-          <span class="item-name">${item.name}</span>
-          <span class="item-price">₹${item.price}</span>
-          <span class="remove-button"><button onclick="removeFromCart(${index})">Remove</button></span>
-        `;
-        cartItemsContainer.appendChild(listItem);
+      if (cart.length === 0) {
+        const emptyMessage = document.createElement('div');
+        emptyMessage.className = 'empty-cart-message';
+        emptyMessage.textContent = 'Please add some items to the cart.';
+        cartItemsContainer.appendChild(emptyMessage);
+      } else {
+        let total = 0;
+        cart.forEach((item, index) => {
+          const listItem = document.createElement('li');
+          listItem.className = 'cart-item';
+          listItem.innerHTML = `
+            <span class="item-name">${item.name}</span>
+            <span class="item-price">₹${item.price}</span>
+            <span class="remove-button"><button onclick="removeFromCart(${index})">Remove</button></span>
+          `;
+          cartItemsContainer.appendChild(listItem);
 
-        total += item.price;
-      });
+          total += item.price;
+        });
 
-      cartTotalContainer.textContent = `Total: ₹${total}`;
+        cartTotalContainer.textContent = `Total: ₹${total}`;
+      }
     }
 
     function removeFromCart(index) {
