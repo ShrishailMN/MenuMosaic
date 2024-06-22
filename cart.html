@@ -56,6 +56,18 @@
   .cart-item span {
     font-size: 18px;
   }
+  .item-name {
+    flex: 1;
+    text-align: left;
+  }
+  .item-price {
+    flex: 1;
+    text-align: center;
+  }
+  .remove-button {
+    flex: 1;
+    text-align: right;
+  }
   .cart-total {
     text-align: right;
     font-size: 20px;
@@ -112,9 +124,9 @@
         const listItem = document.createElement('li');
         listItem.className = 'cart-item';
         listItem.innerHTML = `
-          <span>${item.name}</span>
-          <span>₹${item.price}</span>
-          <button onclick="removeFromCart(${index})">Remove</button>
+          <span class="item-name">${item.name}</span>
+          <span class="item-price">₹${item.price}</span>
+          <span class="remove-button"><button onclick="removeFromCart(${index})">Remove</button></span>
         `;
         cartItemsContainer.appendChild(listItem);
 
