@@ -104,7 +104,6 @@
   .menu-button:hover {
     background-color: rgb(255, 162, 0);
     color: black;
-    
   }
 </style>
 </head>
@@ -122,9 +121,9 @@
   <div class="cart-container">
     <h1>My Cart</h1>
     <ul id="cart-items"></ul>
-    <div class="cart-total" id="cart-total">Total: ₹0</div>
+    <center><div class="cart-total" id="cart-total">Total: ₹0</div></center>
     <br>
-    <center><button class="add-to-cart" data-item="Burger" data-price="9.99">Place Order!</button></center>
+    <center><button id="place-order-button" class="add-to-cart" style="display:none;">Place Order!</button></center>
   </div>
 
   <!-- Script for displaying cart items -->
@@ -136,6 +135,7 @@
     function displayCartItems() {
       const cartItemsContainer = document.getElementById('cart-items');
       const cartTotalContainer = document.getElementById('cart-total');
+      const placeOrderButton = document.getElementById('place-order-button');
       const cart = JSON.parse(localStorage.getItem('cart')) || [];
 
       cartItemsContainer.innerHTML = '';
@@ -143,7 +143,7 @@
       if (cart.length === 0) {
         const emptyMessage = document.createElement('div');
         emptyMessage.className = 'empty-cart-message';
-        emptyMessage.textContent = 'Please add some items to the cart!!';
+        emptyMessage.textContent = 'Please add some items to the cart.';
         cartItemsContainer.appendChild(emptyMessage);
         
         const menuButton = document.createElement('a');
@@ -151,6 +151,8 @@
         menuButton.className = 'menu-button';
         menuButton.textContent = 'Go to Menu';
         cartItemsContainer.appendChild(menuButton);
+
+        placeOrderButton.style.display = 'none';
       } else {
         let total = 0;
         cart.forEach((item, index) => {
@@ -167,6 +169,7 @@
         });
 
         cartTotalContainer.textContent = `Total: ₹${total}`;
+        placeOrderButton.style.display = 'block';
       }
     }
 
