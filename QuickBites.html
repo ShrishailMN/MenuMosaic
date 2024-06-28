@@ -157,6 +157,58 @@
         </div>
         <button class="add-to-cart" data-item="Pizza" data-price="120">Add to Cart</button>
       </li>
+      <li class="dish">
+        <img src="https://images.pexels.com/photos/1639557/pexels-photo-1639557.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Burger Icon">
+        <div class="dish-info">
+          <span>Burger</span>
+        </div>
+        <span class="price">150/-</span>
+        <div class="quantity">
+          <button class="decrease-btn" data-item="Burger" data-price="150">-</button>
+          <input type="text" class="quantity-input" value="1" readonly>
+          <button class="increase-btn" data-item="Burger" data-price="150">+</button>
+        </div>
+        <button class="add-to-cart" data-item="Burger" data-price="150">Add to Cart</button>
+      </li>
+      <li class="dish">
+        <img src="https://images.pexels.com/photos/2619970/pexels-photo-2619970.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Pizza Icon">
+        <div class="dish-info">
+          <span>Momos</span>
+        </div>
+        <span class="price">120/-</span>
+        <div class="quantity">
+          <button class="decrease-btn" data-item="Pizza" data-price="120">-</button>
+          <input type="text" class="quantity-input" value="1" readonly>
+          <button class="increase-btn" data-item="Pizza" data-price="120">+</button>
+        </div>
+        <button class="add-to-cart" data-item="Pizza" data-price="120">Add to Cart</button>
+      </li>
+      <li class="dish">
+        <img src="https://images.pexels.com/photos/2619970/pexels-photo-2619970.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Pizza Icon">
+        <div class="dish-info">
+          <span>Sandwich</span>
+        </div>
+        <span class="price">120/-</span>
+        <div class="quantity">
+          <button class="decrease-btn" data-item="Pizza" data-price="120">-</button>
+          <input type="text" class="quantity-input" value="1" readonly>
+          <button class="increase-btn" data-item="Pizza" data-price="120">+</button>
+        </div>
+        <button class="add-to-cart" data-item="Pizza" data-price="120">Add to Cart</button>
+      </li>
+      <li class="dish">
+        <img src="https://images.pexels.com/photos/2619970/pexels-photo-2619970.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Pizza Icon">
+        <div class="dish-info">
+          <span>Pizza</span>
+        </div>
+        <span class="price">120/-</span>
+        <div class="quantity">
+          <button class="decrease-btn" data-item="Pizza" data-price="120">-</button>
+          <input type="text" class="quantity-input" value="1" readonly>
+          <button class="increase-btn" data-item="Pizza" data-price="120">+</button>
+        </div>
+        <button class="add-to-cart" data-item="Pizza" data-price="120">Add to Cart</button>
+      </li>
       <!-- Repeat similar structure for other dishes -->
     </ul>
   </div>
@@ -164,13 +216,23 @@
   <div class="popup" id="popup-message">Added to cart</div>
 
   <!-- Script for adding items to cart -->
-  <script>
-    
+  <!-- Script for adding items to cart -->
+<script>
   const addToCartButtons = document.querySelectorAll('.add-to-cart');
   const increaseButtons = document.querySelectorAll('.increase-btn');
   const decreaseButtons = document.querySelectorAll('.decrease-btn');
   const quantityInputs = document.querySelectorAll('.quantity-input');
-  const popupMessage = document.getElementById('popup-message');
+  const popupMessage = document.createElement('div');
+  popupMessage.id = 'popup-message';
+  popupMessage.style.display = 'none';
+  popupMessage.style.position = 'fixed';
+  popupMessage.style.top = '10%';
+  popupMessage.style.left = '50%';
+  popupMessage.style.transform = 'translateX(-50%)';
+  popupMessage.style.padding = '10px';
+  popupMessage.style.backgroundColor = 'rgb(238, 238, 88)';
+  popupMessage.style.color = '#000000';
+  document.body.appendChild(popupMessage);
 
   addToCartButtons.forEach((button, index) => {
     button.addEventListener('click', () => {
