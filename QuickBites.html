@@ -109,6 +109,17 @@
     z-index: 1000;
     display: none;
   }
+  .alert-message {
+    display: none;
+    background-color: rgb(238, 238, 88);
+    color: #000000;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 16px;
+    position: relative;
+    width: 100%;
+    z-index: 1000;
+  }
   @media (max-width: 768px) {
     .menu-container {
       width: 90%;
@@ -236,17 +247,7 @@
   const increaseButtons = document.querySelectorAll('.increase-btn');
   const decreaseButtons = document.querySelectorAll('.decrease-btn');
   const quantityInputs = document.querySelectorAll('.quantity-input');
-  const popupMessage = document.createElement('div');
-  popupMessage.id = 'popup-message';
-  popupMessage.style.display = 'none';
-  popupMessage.style.position = 'fixed';
-  popupMessage.style.top = '10%';
-  popupMessage.style.left = '50%';
-  popupMessage.style.transform = 'translateX(-50%)';
-  popupMessage.style.padding = '10px';
-  popupMessage.style.backgroundColor = 'rgb(238, 238, 88)';
-  popupMessage.style.color = '#000000';
-  document.body.appendChild(popupMessage);
+  const alertMessage = document.getElementById('alert-message');
 
   addToCartButtons.forEach((button, index) => {
     button.addEventListener('click', () => {
@@ -254,7 +255,7 @@
       const itemPrice = parseFloat(button.getAttribute('data-price'));
       const quantity = parseInt(quantityInputs[index].value);
       addToCart(itemName, itemPrice, quantity);
-      showPopupMessage(`Added ${quantity} ${itemName}(s) to cart for ₹${itemPrice * quantity}`);
+      showAlertMessage(`Added ${quantity} ${itemName}(s) to cart for ₹${itemPrice * quantity}`);
     });
   });
 
@@ -300,16 +301,18 @@
     document.getElementById('total-value').textContent = `Total: ₹${total}`;
   }
 
-  function showPopupMessage(message) {
-    popupMessage.textContent = message;
-    popupMessage.style.display = 'block';
+  function showAlertMessage(message) {
+    alertMessage.textContent = message;
+    alertMessage.style.display = 'block';
     setTimeout(() => {
-      popupMessage.style.display = 'none';
-    }, 2000); // Popup will disappear after 2 seconds
+      alertMessage.style.display = 'none';
+    }, 2000); // Alert will disappear after 2 seconds
   }
 
   // Call updateTotal on page load to initialize the total value
   updateTotal();
+</script>
+
 </script>
 
 </body>
