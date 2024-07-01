@@ -14,15 +14,32 @@
     padding: 0;
   }
   .logo1 {
-    padding-left: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 30px;
-    color: rgb(0, 0, 0);
-    margin-top: 50px;
-    margin-left: 39.4%;
-  }
+  display: flex;
+  justify-content: center; /* Center align the items horizontally */
+  align-items: center; /* Center align the items vertically */
+  height: 30px;
+  color: rgb(238, 238, 88);
+  margin-top: 50px;
+  padding-left: 0; /* Remove any padding if necessary */
+}
+
+.logo1 ul {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  color: rgb(238, 238,88);
+}
+
+.logo1 ul li {
+  margin: 0 15px; /* Add some spacing between the menu items */
+  color: rgb(238, 238,88);
+}
+
+.logo1 ul li a {
+  text-decoration: none;
+  color: inherit; /* Use the inherited text color */
+}
   .menu-container {
     max-width: 800px;
     margin: 50px auto;
