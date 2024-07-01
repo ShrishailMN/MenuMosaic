@@ -110,16 +110,18 @@
     display: none;
   }
   .alert-message {
-    display: none;
-    background-color: rgb(238, 238, 88);
-    color: #000000;
-    text-align: center;
-    padding: 10px 0;
-    font-size: 16px;
-    position: relative;
-    width: 100%;
-    z-index: 1000;
-  }
+  display: none;
+  background-color: rgb(238, 238, 88);
+  color: #000000;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 16px;
+  position: absolute;
+  top: 80px; /* Adjust as needed to fit your layout */
+  width: 100%;
+  z-index: 1000;
+}
+
   @media (max-width: 768px) {
     .menu-container {
       width: 90%;
@@ -139,7 +141,7 @@
       </b>
     </ul>
   </div>
-  <div id="alert-message" class="alert-message"></div>
+  <div id="alert-message" class="alert-message"></div> 
   <div class="menu-container">
     <h1>Quick Bites</h1>
     <ul>
@@ -255,71 +257,72 @@
   <div class="popup" id="popup-message">Added to cart</div>
   <script>
   const addToCartButtons = document.querySelectorAll('.add-to-cart');
-  const increaseButtons = document.querySelectorAll('.increase-btn');
-  const decreaseButtons = document.querySelectorAll('.decrease-btn');
-  const quantityInputs = document.querySelectorAll('.quantity-input');
-  const alertMessage = document.getElementById('alert-message');
-  
-  addToCartButtons.forEach((button, index) => {
-    button.addEventListener('click', () => {
-      const itemName = button.getAttribute('data-item');
-      const itemPrice = parseFloat(button.getAttribute('data-price'));
-      const quantity = parseInt(quantityInputs[index].value);
-      addToCart(itemName, itemPrice, quantity);
-      showAlertMessage(`Added ${quantity} ${itemName}(s) to cart for ₹${itemPrice * quantity}`);
-    });
+const increaseButtons = document.querySelectorAll('.increase-btn');
+const decreaseButtons = document.querySelectorAll('.decrease-btn');
+const quantityInputs = document.querySelectorAll('.quantity-input');
+const alertMessage = document.getElementById('alert-message');
+
+addToCartButtons.forEach((button, index) => {
+  button.addEventListener('click', () => {
+    const itemName = button.getAttribute('data-item');
+    const itemPrice = parseFloat(button.getAttribute('data-price'));
+    const quantity = parseInt(quantityInputs[index].value);
+    addToCart(itemName, itemPrice, quantity);
+    showAlertMessage(`Added ${quantity} ${itemName}(s) to cart for ₹${itemPrice * quantity}`);
   });
-  
-  increaseButtons.forEach((button, index) => {
-    button.addEventListener('click', () => {
-      const input = quantityInputs[index];
-      let quantity = parseInt(input.value);
-      quantity++;
+});
+
+increaseButtons.forEach((button, index) => {
+  button.addEventListener('click', () => {
+    const input = quantityInputs[index];
+    let quantity = parseInt(input.value);
+    quantity++;
+    input.value = quantity;
+  });
+});
+
+decreaseButtons.forEach((button, index) => {
+  button.addEventListener('click', () => {
+    const input = quantityInputs[index];
+    let quantity = parseInt(input.value);
+    if (quantity > 1) {
+      quantity--;
       input.value = quantity;
-    });
-  });
-  
-  decreaseButtons.forEach((button, index) => {
-    button.addEventListener('click', () => {
-      const input = quantityInputs[index];
-      let quantity = parseInt(input.value);
-      if (quantity > 1) {
-        quantity--;
-        input.value = quantity;
-      }
-    });
-  });
-  
-  function addToCart(name, price, quantity) {
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
-    for (let i = 0; i < quantity; i++) {
-      cart.push({ name, price });
     }
-    localStorage.setItem('cart', JSON.stringify(cart));
-    updateTotal();
+  });
+});
+
+function addToCart(name, price, quantity) {
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  for (let i = 0; i < quantity; i++) {
+    cart.push({ name, price });
   }
-  
-  function removeFromCart(name) {
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
-    cart = cart.filter(item => item.name !== name);
-    localStorage.setItem('cart', JSON.stringify(cart));
-    updateTotal();
-  }
-  
-  function updateTotal() {
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
-    let total = cart.reduce((sum, item) => sum + item.price, 0);
-    document.getElementById('total-value').textContent = `Total: ₹${total}`;
-  }
-  
-  function showAlertMessage(message) {
-    alertMessage.textContent = message;
-    alertMessage.style.display = 'block';
-    setTimeout(() => {
-      alertMessage.style.display = 'none';
-    }, 2000); // Alert will disappear after 2 seconds
-  }
-  
-  // Call updateTotal on page load to initialize the total value
+  localStorage.setItem('cart', JSON.stringify(cart));
   updateTotal();
+}
+
+function removeFromCart(name) {
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  cart = cart.filter(item => item.name !== name);
+  localStorage.setItem('cart', JSON.stringify(cart));
+  updateTotal();
+}
+
+function updateTotal() {
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  let total = cart.reduce((sum, item) => sum + item.price, 0);
+  document.getElementById('total-value').textContent = `Total: ₹${total}`;
+}
+
+function showAlertMessage(message) {
+  alertMessage.textContent = message;
+  alertMessage.style.display = 'block';
+  setTimeout(() => {
+    alertMessage.style.display = 'none';
+  }, 2000); // Alert will disappear after 2 seconds
+}
+
+// Call updateTotal on page load to initialize the total value
+updateTotal();
 </script>
+</body></html>
