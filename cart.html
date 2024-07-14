@@ -143,7 +143,7 @@
       if (cart.length === 0) {
         const emptyMessage = document.createElement('div');
         emptyMessage.className = 'empty-cart-message';
-        emptyMessage.textContent = 'Your cart looks lonely! Fill it up with delicious bites and treats.';
+        emptyMessage.textContent = 'Please add some items to the cart.';
         cartItemsContainer.appendChild(emptyMessage);
         
         const menuButton = document.createElement('a');
@@ -182,6 +182,64 @@
 
       displayCartItems();
     }
+    
+  document.addEventListener('DOMContentLoaded', () => {
+    displayCartItems();
+    const placeOrderButton = document.getElementById('place-order-button');
+    placeOrderButton.addEventListener('click', () => {
+      window.location.href = 'payment.html';
+    });
+  });
+
+  function displayCartItems() {
+    const cartItemsContainer = document.getElementById('cart-items');
+    const cartTotalContainer = document.getElementById('cart-total');
+    const placeOrderButton = document.getElementById('place-order-button');
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    cartItemsContainer.innerHTML = '';
+
+    if (cart.length === 0) {
+      const emptyMessage = document.createElement('div');
+      emptyMessage.className = 'empty-cart-message';
+      emptyMessage.textContent = 'Please add some items to the cart.';
+      cartItemsContainer.appendChild(emptyMessage);
+      
+      const menuButton = document.createElement('a');
+      menuButton.href = 'menu.html';
+      menuButton.className = 'menu-button';
+      menuButton.textContent = 'Go to Menu';
+      cartItemsContainer.appendChild(menuButton);
+
+      placeOrderButton.style.display = 'none';
+    } else {
+      let total = 0;
+      cart.forEach((item, index) => {
+        const listItem = document.createElement('li');
+        listItem.className = 'cart-item';
+        listItem.innerHTML = `
+          <span class="item-name">${item.name}</span>
+          <span class="item-price">₹${item.price}</span>
+          <span class="remove-button"><button onclick="removeFromCart(${index})">Remove</button></span>
+        `;
+        cartItemsContainer.appendChild(listItem);
+
+        total += item.price;
+      });
+
+      cartTotalContainer.textContent = `Total: ₹${total}`;
+      placeOrderButton.style.display = 'block';
+    }
+  }
+
+  function removeFromCart(index) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart.splice(index, 1);
+    localStorage.setItem('cart', JSON.stringify(cart));
+    displayCartItems();
+  }
+
+
   </script>
 
 </body>
