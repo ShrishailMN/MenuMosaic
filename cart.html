@@ -1,246 +1,224 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cart | Menu Mosaic</title>
-<link rel="stylesheet" href="menu.css">
-<style>
-    *{
-        color: black;
-    }
-  body {
-    font-family: 'Poppins', sans-serif;
-    background-size: cover;
-    background-attachment: fixed;
-    margin: 0;
-    padding: 0;
-  }
-  .logo1 {
-    padding-left: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 30px;
-    color: rgb(0, 0, 0);
-    margin-top: 50px;
-    margin-left: 36.9%;
-  }
-  .cart-container {
-    max-width: 800px;
-    margin: 50px auto;
-    background-color: rgb(238, 238, 88); 
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); 
-    padding: 20px;
-  }
-  h1 {
-    color: rgb(0, 0, 0);
-    text-align: center;
-    margin-bottom: 30px;
-  }
-  ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-  }
-  li {
-    margin-bottom: 20px;
-  }
-  .cart-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .cart-item span {
-    font-size: 18px;
-  }
-  .item-name {
-    flex: 1;
-    text-align: left;
-  }
-  .item-price {
-    flex: 1;
-    text-align: center;
-  }
-  .remove-button {
-    flex: 1;
-    text-align: right;
-  }
-  .cart-total {
-    text-align: right;
-    font-size: 20px;
-    font-weight: bold;
-    margin-top: 20px;
-  }
-  .add-to-cart {
-    background-color: rgb(238, 238, 88);
-    color: #000000;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  .add-to-cart:hover {
-    background-color: rgb(255, 162, 0);
-  }
-  .empty-cart-message {
-    text-align: center;
-    font-size: 18px;
-    color: black;
-  }
-  .menu-button {
-    display: block;
-    margin: 20px auto;
-    background-color: rgb(238, 238, 88);
-    color: #000000;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    text-align: center;
-    transition: background-color 0.3s ease;
-    width: 11%;
-  }
-  .menu-button:hover {
-    background-color: rgb(255, 162, 0);
-    color: black;
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart | Menu Mosaic</title>
+    <link rel="stylesheet" href="menu.css">
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script> <!-- EmailJS Library -->
+    <style>
+        * {
+            color: black;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-size: cover;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+        }
+        .logo1 {
+            padding-left: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 30px;
+            color: rgb(0, 0, 0);
+            margin-top: 50px;
+            margin-left: 36.9%;
+        }
+        .cart-container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: rgb(238, 238, 88);
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        h1 {
+            color: rgb(0, 0, 0);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        li {
+            margin-bottom: 20px;
+        }
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .cart-item span {
+            font-size: 18px;
+        }
+        .item-name {
+            flex: 1;
+            text-align: left;
+        }
+        .item-price {
+            flex: 1;
+            text-align: center;
+        }
+        .remove-button {
+            flex: 1;
+            text-align: right;
+        }
+        .cart-total {
+            text-align: right;
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        .add-to-cart {
+            background-color: rgb(238, 238, 88);
+            color: #000000;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .add-to-cart:hover {
+            background-color: rgb(255, 162, 0);
+        }
+        .empty-cart-message {
+            text-align: center;
+            font-size: 18px;
+            color: black;
+        }
+        .menu-button {
+            display: block;
+            margin: 20px auto;
+            background-color: rgb(238, 238, 88);
+            color: #000000;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            text-align: center;
+            transition: background-color 0.3s ease;
+            width: 11%;
+        }
+        .menu-button:hover {
+            background-color: rgb(255, 162, 0);
+            color: black;
+        }
+    </style>
 </head>
 <body background="vegetables-set-left-black-slate.jpg">
-  <div class="logo1">
-    <ul>
-      <b>
-        <li><a href="index.html">HOME</a></li>
-        <li><a href="menu.html">MENU</a></li>
-        <li><a href="About.html">ABOUT</a></li>
-        <li><a href="cart.html">CART</a></li>
-      </b>
-    </ul>
-  </div>
-  <div class="cart-container">
-    <h1>My Cart</h1>
-    <ul id="cart-items"></ul>
-    <div class="cart-total" id="cart-total">Total: ₹0</div>
-    <br>
-    <center><button id="place-order-button" class="add-to-cart" style="display:none;">Place Order!</button></center>
-  </div>
+    <div class="logo1">
+        <ul>
+            <b>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="menu.html">MENU</a></li>
+                <li><a href="About.html">ABOUT</a></li>
+                <li><a href="cart.html">CART</a></li>
+            </b>
+        </ul>
+    </div>
+    <div class="cart-container">
+        <h1>My Cart</h1>
+        <ul id="cart-items"></ul>
+        <div class="cart-total" id="cart-total">Total: ₹0</div>
+        <br>
+        <center>
+            <input type="text" id="customer-name" placeholder="Enter your name" required>
+            <br><br>
+            <button id="place-order-button" class="add-to-cart" style="display:none;">Place Order!</button>
+        </center>
+    </div>
 
-  <!-- Script for displaying cart items -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      displayCartItems();
-    });
-
-    function displayCartItems() {
-      const cartItemsContainer = document.getElementById('cart-items');
-      const cartTotalContainer = document.getElementById('cart-total');
-      const placeOrderButton = document.getElementById('place-order-button');
-      const cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-      cartItemsContainer.innerHTML = '';
-
-      if (cart.length === 0) {
-        const emptyMessage = document.createElement('div');
-        emptyMessage.className = 'empty-cart-message';
-        emptyMessage.textContent = 'Please add some items to the cart.';
-        cartItemsContainer.appendChild(emptyMessage);
-        
-        const menuButton = document.createElement('a');
-        menuButton.href = 'menu.html';
-        menuButton.className = 'menu-button';
-        menuButton.textContent = 'Go to Menu';
-        cartItemsContainer.appendChild(menuButton);
-
-        placeOrderButton.style.display = 'none';
-      } else {
-        let total = 0;
-        cart.forEach((item, index) => {
-          const listItem = document.createElement('li');
-          listItem.className = 'cart-item';
-          listItem.innerHTML = `
-            <span class="item-name">${item.name}</span>
-            <span class="item-price">₹${item.price}</span>
-            <span class="remove-button"><button onclick="removeFromCart(${index})">Remove</button></span>
-          `;
-          cartItemsContainer.appendChild(listItem);
-
-          total += item.price;
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            displayCartItems();
+            const placeOrderButton = document.getElementById('place-order-button');
+            placeOrderButton.addEventListener('click', () => {
+                placeOrder();
+            });
         });
 
-        cartTotalContainer.textContent = `Total: ₹${total}`;
-        placeOrderButton.style.display = 'block';
-      }
-    }
+        function displayCartItems() {
+            const cartItemsContainer = document.getElementById('cart-items');
+            const cartTotalContainer = document.getElementById('cart-total');
+            const placeOrderButton = document.getElementById('place-order-button');
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-    function removeFromCart(index) {
-      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cartItemsContainer.innerHTML = '';
 
-      cart.splice(index, 1);
+            if (cart.length === 0) {
+                const emptyMessage = document.createElement('div');
+                emptyMessage.className = 'empty-cart-message';
+                emptyMessage.textContent = 'Please add some items to the cart.';
+                cartItemsContainer.appendChild(emptyMessage);
 
-      localStorage.setItem('cart', JSON.stringify(cart));
+                const menuButton = document.createElement('a');
+                menuButton.href = 'menu.html';
+                menuButton.className = 'menu-button';
+                menuButton.textContent = 'Go to Menu';
+                cartItemsContainer.appendChild(menuButton);
 
-      displayCartItems();
-    }
-    
-  document.addEventListener('DOMContentLoaded', () => {
-    displayCartItems();
-    const placeOrderButton = document.getElementById('place-order-button');
-    placeOrderButton.addEventListener('click', () => {
-      window.location.href = 'payment.html';
-    });
-  });
+                placeOrderButton.style.display = 'none';
+            } else {
+                let total = 0;
+                cart.forEach((item, index) => {
+                    const listItem = document.createElement('li');
+                    listItem.className = 'cart-item';
+                    listItem.innerHTML = `
+                        <span class="item-name">${item.name}</span>
+                        <span class="item-price">₹${item.price}</span>
+                        <span class="remove-button"><button onclick="removeFromCart(${index})">Remove</button></span>
+                    `;
+                    cartItemsContainer.appendChild(listItem);
 
-  function displayCartItems() {
-    const cartItemsContainer = document.getElementById('cart-items');
-    const cartTotalContainer = document.getElementById('cart-total');
-    const placeOrderButton = document.getElementById('place-order-button');
+                    total += item.price;
+                });
+
+                cartTotalContainer.textContent = `Total: ₹${total}`;
+                placeOrderButton.style.display = 'block';
+            }
+        }
+
+        function removeFromCart(index) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.splice(index, 1);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            displayCartItems();
+        }
+
+        function placeOrder() {
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const customerName = document.getElementById('customer-name').value.trim();
 
-    cartItemsContainer.innerHTML = '';
+    if (cart.length > 0 && customerName) {
+        // Prepare order details
+        let orderDetails = cart.map(item => `${item.name}: ₹${item.price}`).join('\n');
+        let totalAmount = cart.reduce((total, item) => total + item.price, 0);
 
-    if (cart.length === 0) {
-      const emptyMessage = document.createElement('div');
-      emptyMessage.className = 'empty-cart-message';
-      emptyMessage.textContent = 'Please add some items to the cart.';
-      cartItemsContainer.appendChild(emptyMessage);
-      
-      const menuButton = document.createElement('a');
-      menuButton.href = 'menu.html';
-      menuButton.className = 'menu-button';
-      menuButton.textContent = 'Go to Menu';
-      cartItemsContainer.appendChild(menuButton);
-
-      placeOrderButton.style.display = 'none';
+        // Send email using EmailJS
+        emailjs.send("service_zxjissv", "template_p49cg9f", {
+            order_details: orderDetails,
+            total_amount: `₹${totalAmount}`,
+            customer_name: customerName,  // Add the customer's name
+            to_email: "shrishailmn23@gmail.com"
+        })
+        .then(response => {
+            alert('Order placed successfully!');
+            localStorage.removeItem('cart');
+            window.location.href = 'success.html'; // Redirect to a success page
+        })
+        .catch(error => {
+            console.error('Error sending email:', error);
+            alert('Failed to place order. Please try again.');
+        });
     } else {
-      let total = 0;
-      cart.forEach((item, index) => {
-        const listItem = document.createElement('li');
-        listItem.className = 'cart-item';
-        listItem.innerHTML = `
-          <span class="item-name">${item.name}</span>
-          <span class="item-price">₹${item.price}</span>
-          <span class="remove-button"><button onclick="removeFromCart(${index})">Remove</button></span>
-        `;
-        cartItemsContainer.appendChild(listItem);
-
-        total += item.price;
-      });
-
-      cartTotalContainer.textContent = `Total: ₹${total}`;
-      placeOrderButton.style.display = 'block';
+        alert('Please enter your name before placing the order.');
     }
-  }
-
-  function removeFromCart(index) {
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
-    cart.splice(index, 1);
-    localStorage.setItem('cart', JSON.stringify(cart));
-    displayCartItems();
-  }
+}
 
 
-  </script>
-
+    </script>
 </body>
 </html>
