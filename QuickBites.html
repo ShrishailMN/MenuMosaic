@@ -4,29 +4,38 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MainMenu</title>
-<link rel="stylesheet" href="menu.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 <style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(vegetables-set-left-black-slate.jpg);
   font-family: 'Poppins', sans-serif;
   background-size: cover;
   background-attachment: fixed;
   margin: 0;
   padding: 0;
+  min-height: 100vh;
 }
 
 .logo1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 50px;
+  height: 70px;
   color: rgb(238, 238, 88);
-  margin-top: 0;
-  padding-left: 0;
   position: fixed;
   width: 100%;
   top: 0;
-  background-color: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(10px);
   z-index: 1000;
+  padding: 0 20px;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
 }
 
 .logo1 ul {
@@ -34,149 +43,259 @@ body {
   list-style-type: none;
   padding: 0;
   margin: 0;
-}
-
-.logo1 ul li {
-  margin: 0 15px; /* Add some spacing between the menu items */
-  color: rgb(238, 238,88);
+  gap: clamp(20px, 5vw, 40px);
 }
 
 .logo1 ul li a {
   text-decoration: none;
-  color: inherit; /* Use the inherited text color */
+  color: rgb(238, 238, 88);
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  transition: all 0.3s ease;
+  padding: 10px 20px;
+  border-radius: 25px;
+  letter-spacing: 1px;
+  font-weight: 500;
 }
+
+.logo1 ul li a:hover {
+  background-color: rgb(238, 238, 88);
+  color: black;
+  transform: translateY(-2px);
+}
+
 .menu-container {
-  max-width: 800px;
-  margin: 100px auto 50px; /* Adjust margin-top to be below the nav bar */
-  background-color: rgb(238, 238, 88);
-  border-radius: 10px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  padding: 20px;
+  max-width: 1200px;
+  width: 95%;
+  margin: 90px auto 50px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  padding: clamp(20px, 4vw, 40px);
   position: relative;
-  transition: opacity 0.5s ease, visibility 0.5s ease; /* Add transition */
+  transition: all 0.5s ease;
+  animation: fadeIn 0.5s ease-out;
+  backdrop-filter: blur(10px);
 }
 
-.menu-container.hidden {
-  opacity: 0;
-  visibility: hidden;
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.menu-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 50px;
-  background-color: rgb(238, 238, 88);
-  opacity: 1;
-  transition: opacity 0.5s ease;
+h1 {
+  color: rgb(238, 238, 88);
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: clamp(2rem, 4vw, 3rem);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  letter-spacing: 2px;
 }
-  h1 {
-    color: rgb(0, 0, 0);
-    text-align: center;
-    margin-bottom: 30px;
-  }
-  ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-  }
-  li {
-    margin-bottom: 20px;
-  }
+
+.dish {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 20px;
+  border-radius: 16px;
+  margin-bottom: 25px;
+  transition: all 0.3s ease;
+  flex-wrap: wrap;
+  border: 1px solid rgba(238, 238, 88, 0.1);
+}
+
+.dish:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(238, 238, 88, 0.3);
+}
+
+.dish img {
+  width: clamp(200px, 28vw, 250px);
+  height: clamp(200px, 28vw, 250px);
+  border-radius: 15px;
+  object-fit: cover;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  border: 3px solid rgb(238, 238, 88);
+  transition: all 0.3s ease;
+}
+
+.dish:hover img {
+  transform: scale(1.05);
+  border-color: rgb(255, 162, 0);
+}
+
+.dish-info {
+  flex: 1;
+  min-width: 150px;
+  padding-left: 10px;
+}
+
+.dish-info span {
+  font-size: clamp(1.3rem, 2vw, 1.6rem);
+  font-weight: 600;
+  color: rgb(238, 238, 88);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  letter-spacing: 1px;
+}
+
+.price {
+  font-weight: bold;
+  font-size: clamp(1.2rem, 1.8vw, 1.4rem);
+  min-width: 100px;
+  text-align: right;
+  color: rgb(238, 238, 88);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.quantity {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.quantity input {
+  width: 45px;
+  text-align: center;
+  border: 1px solid rgba(238, 238, 88, 0.3);
+  background: rgba(0, 0, 0, 0.5);
+  color: rgb(238, 238, 88);
+  border-radius: 5px;
+  padding: 8px 5px;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.quantity button,
+.add-to-cart {
+  background: rgb(238, 238, 88);
+  color: black;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: clamp(0.9rem, 1.2vw, 1.1rem);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.quantity button:hover,
+.add-to-cart:hover {
+  background-color: rgb(255, 162, 0);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
   .dish {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .dish img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    margin-right: 10px;
-  }
-  .dish-info {
-    flex-grow: 1;
-  }
-  .add-to-cart {
-    background-color: rgb(238, 238, 88);
-    color: #000000;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-right: 10px;
-  }
-  .add-to-cart:hover {
-    background-color: rgb(255, 162, 0);
-  }
-  .quantity {
-    display: flex;
-    align-items: center;
-  }
-  .quantity input {
-    width: 40px;
+    flex-direction: column;
     text-align: center;
-    margin: 0 5px;
+    padding: 25px;
+    gap: 20px;
   }
-  .quantity button {
-    background-color: rgb(238, 238, 88);
-    color: #000000;
-    border: none;
-    padding: 5px;
-    cursor: pointer;
+
+  .dish img {
+    width: clamp(220px, 50vw, 280px);
+    height: clamp(220px, 50vw, 280px);
+    margin: 0 auto;
   }
-  .quantity button:hover {
-    background-color: rgb(255, 162, 0);
+
+  .dish-info {
+    margin: 15px 0;
+    padding-left: 0;
   }
+
   .price {
-    margin-left: 30;
-    width: 100px;
+    text-align: center;
+    margin: 10px 0;
   }
-  span {
-    color: black;
+
+  .quantity {
+    justify-content: center;
+    margin: 15px auto;
+    width: fit-content;
   }
-  .popup {
-    position: fixed;
-    top: 75px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: rgb(88, 85, 85);
-    color: #ffffff;
-    padding: 10px 20px;
-    border-radius: 5px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-    display: none;
+
+  .add-to-cart {
+    width: 100%;
+    padding: 15px;
   }
-  @media (max-width: 768px) {
-    .menu-container {
-      width: 90%;
-      margin: 20px auto;
-    }
+}
+
+@media (max-width: 480px) {
+  .menu-container {
+    width: 98%;
+    margin: 80px auto 30px;
+    padding: 15px;
   }
+
+  .dish {
+    padding: 20px 15px;
+  }
+
+  .dish img {
+    width: clamp(200px, 45vw, 240px);
+    height: clamp(200px, 45vw, 240px);
+  }
+
+  .logo1 {
+    height: 60px;
+  }
+
+  .logo1 ul li a {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+  }
+}
+
+.popup {
+  position: fixed;
+  top: 85px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.9);
+  color: rgb(238, 238, 88);
+  padding: 15px 30px;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  display: none;
+  animation: slideDown 0.3s ease-out;
+  border: 1px solid rgba(238, 238, 88, 0.3);
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+@keyframes slideDown {
+  from { transform: translate(-50%, -20px); opacity: 0; }
+  to { transform: translate(-50%, 0); opacity: 1; }
+}
 </style>
 </head>
-<body background="vegetables-set-left-black-slate.jpg">
+<body>
   <div class="logo1">
     <ul>
-      <b>
-        <li><a href="index.html">HOME</a></li>
-        <li><a href="menu.html">MENU</a></li>
-        <li><a href="About.html">ABOUT</a></li>
-        <li><a href="cart.html">CART</a></li>
-      </b>
+      <li><a href="mainpage.html">HOME</a></li>
+      <li><a href="menu.html">MENU</a></li>
+      <li><a href="About.html">ABOUT</a></li>
+      <li><a href="cart.html">CART</a></li>
     </ul>
   </div>
+
   <div class="menu-container">
     <h1>Quick Bites</h1>
     <ul>
       <li class="dish">
-        <img src="https://images.pexels.com/photos/1639557/pexels-photo-1639557.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Burger Icon">
+        <img src="images/burger.jpeg" alt="Burger">
         <div class="dish-info">
           <span>Burger</span>
         </div>
-        <span class="price">150/-</span>
+        <span class="price">₹150/-</span>
         <div class="quantity">
           <button class="decrease-btn" data-item="Burger" data-price="150">-</button>
           <input type="text" class="quantity-input" value="1" readonly>
@@ -185,155 +304,136 @@ body {
         <button class="add-to-cart" data-item="Burger" data-price="150">Add to Cart</button>
       </li>
       <li class="dish">
-        <img src="https://images.pexels.com/photos/2619970/pexels-photo-2619970.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Pizza Icon">
+        <img src="images/pizza.jpeg" alt="pizza">
         <div class="dish-info">
           <span>Pizza</span>
         </div>
-        <span class="price">120/-</span>
+        <span class="price">₹150/-</span>
         <div class="quantity">
-          <button class="decrease-btn" data-item="Pizza" data-price="120">-</button>
+          <button class="decrease-btn" data-item="pizza" data-price="150">-</button>
           <input type="text" class="quantity-input" value="1" readonly>
-          <button class="increase-btn" data-item="Pizza" data-price="120">+</button>
+          <button class="increase-btn" data-item="pizza" data-price="150">+</button>
         </div>
-        <button class="add-to-cart" data-item="Pizza" data-price="120">Add to Cart</button>
+        <button class="add-to-cart" data-item="pizza" data-price="150">Add to Cart</button>
       </li>
       <li class="dish">
-        <img src="https://5.imimg.com/data5/ANDROID/Default/2023/12/368878915/FL/ER/NN/119594808/product-jpeg.jpg" alt="Pizza Icon">
+        <img src="images/momos.jpg" alt="momos">
         <div class="dish-info">
           <span>Momos</span>
         </div>
-        <span class="price">120/-</span>
+        <span class="price">₹150/-</span>
         <div class="quantity">
-          <button class="decrease-btn" data-item="Pizza" data-price="120">-</button>
+          <button class="decrease-btn" data-item="momos" data-price="150">-</button>
           <input type="text" class="quantity-input" value="1" readonly>
-          <button class="increase-btn" data-item="Pizza" data-price="120">+</button>
+          <button class="increase-btn" data-item="momos" data-price="150">+</button>
         </div>
-        <button class="add-to-cart" data-item="Pizza" data-price="120">Add to Cart</button>
+        <button class="add-to-cart" data-item="momos" data-price="150">Add to Cart</button>
       </li>
       <li class="dish">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXFvQ2k0eBwmHIaeUMWVdRA8Q84pBo5xzIIA&s" alt="Pizza Icon">
-        <div class="dish-info">
-          <span>Frankie</span>
-        </div>
-        <span class="price">120/-</span>
-        <div class="quantity">
-          <button class="decrease-btn" data-item="Pizza" data-price="120">-</button>
-          <input type="text" class="quantity-input" value="1" readonly>
-          <button class="increase-btn" data-item="Pizza" data-price="120">+</button>
-        </div>
-        <button class="add-to-cart" data-item="Pizza" data-price="120">Add to Cart</button>
-      </li>
-      <li class="dish">
-        <img src="https://images.pexels.com/photos/933655/pexels-photo-933655.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Pizza Icon">
-        <div class="dish-info">
-          <span>Sandwich</span>
-        </div>
-        <span class="price">120/-</span>
-        <div class="quantity">
-          <button class="decrease-btn" data-item="Pizza" data-price="120">-</button>
-          <input type="text" class="quantity-input" value="1" readonly>
-          <button class="increase-btn" data-item="Pizza" data-price="120">+</button>
-        </div>
-        <button class="add-to-cart" data-item="Pizza" data-price="120">Add to Cart</button>
-      </li>
-      <li class="dish">
-        <img src="https://images.pexels.com/photos/2456435/pexels-photo-2456435.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Pizza Icon">
+        <img src="images/noodles.jpeg" alt="noodles">
         <div class="dish-info">
           <span>Noodles</span>
         </div>
-        <span class="price">120/-</span>
+        <span class="price">₹150/-</span>
         <div class="quantity">
-          <button class="decrease-btn" data-item="Pizza" data-price="120">-</button>
+          <button class="decrease-btn" data-item="noodles" data-price="150">-</button>
           <input type="text" class="quantity-input" value="1" readonly>
-          <button class="increase-btn" data-item="Pizza" data-price="120">+</button>
+          <button class="increase-btn" data-item="noodles" data-price="150">+</button>
         </div>
-        <button class="add-to-cart" data-item="Pizza" data-price="120">Add to Cart</button>
+        <button class="add-to-cart" data-item="noodles" data-price="150">Add to Cart</button>
       </li>
-      <!-- Repeat similar structure for other dishes -->
+      <li class="dish">
+        <img src="images/rolls.jpeg" alt="rolls">
+        <div class="dish-info">
+          <span>Rolls</span>
+        </div>
+        <span class="price">₹150/-</span>
+        <div class="quantity">
+          <button class="decrease-btn" data-item="rolls" data-price="150">-</button>
+          <input type="text" class="quantity-input" value="1" readonly>
+          <button class="increase-btn" data-item="rolls" data-price="150">+</button>
+        </div>
+        <button class="add-to-cart" data-item="rolls" data-price="150">Add to Cart</button>
+      </li>
+      <li class="dish">
+        <img src="images/sandwich.jpeg" alt="sandwich">
+        <div class="dish-info">
+          <span>Sandwich</span>
+        </div>
+        <span class="price">₹150/-</span>
+        <div class="quantity">
+          <button class="decrease-btn" data-item="sandwich" data-price="150">-</button>
+          <input type="text" class="quantity-input" value="1" readonly>
+          <button class="increase-btn" data-item="sandwich" data-price="150">+</button>
+        </div>
+        <button class="add-to-cart" data-item="sandwich" data-price="150">Add to Cart</button>
+      </li>
     </ul>
   </div>
 
   <div class="popup" id="popup-message">Added to cart</div>
 
-  <!-- Script for adding items to cart -->
   <script>
-    const addToCartButtons = document.querySelectorAll('.add-to-cart');
-    const increaseButtons = document.querySelectorAll('.increase-btn');
-    const decreaseButtons = document.querySelectorAll('.decrease-btn');
-    const quantityInputs = document.querySelectorAll('.quantity-input');
-    const popupMessage = document.getElementById('popup-message');
 
-    addToCartButtons.forEach((button, index) => {
-      button.addEventListener('click', () => {
-        const itemName = button.getAttribute('data-item');
-        const itemPrice = parseFloat(button.getAttribute('data-price'));
-        const quantity = parseInt(quantityInputs[index].value);
-        addToCart(itemName, itemPrice, quantity);
-        showPopupMessage(`Added ${quantity} ${itemName}(s) to cart for ₹${itemPrice * quantity}`);
-      });
-    });
+  // Cart to store items
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-    increaseButtons.forEach((button, index) => {
-      button.addEventListener('click', () => {
-        const input = quantityInputs[index];
-        let quantity = parseInt(input.value);
-        quantity++;
-        input.value = quantity;
-      });
-    });
+  // Function to render popup
+  function showPopup(message) {
+    const popup = document.createElement("div");
+    popup.classList.add("popup");
+    popup.textContent = message;
+    document.body.appendChild(popup);
+    popup.style.display = "block";
 
-    decreaseButtons.forEach((button, index) => {
-      button.addEventListener('click', () => {
-        const input = quantityInputs[index];
-        let quantity = parseInt(input.value);
-        if (quantity > 1) {
-          quantity--;
-          input.value = quantity;
-        }
-      });
-    });
+    setTimeout(() => {
+      popup.style.display = "none";
+      document.body.removeChild(popup);
+    }, 2000);
+  }
 
-    function addToCart(name, price, quantity) {
-      let cart = JSON.parse(localStorage.getItem('cart')) || [];
-      for (let i = 0; i < quantity; i++) {
-        cart.push({ name, price });
+  // Add event listeners to "Add to Cart" buttons
+  document.querySelectorAll(".add-to-cart").forEach((button) => {
+    button.addEventListener("click", () => {
+      const itemName = button.getAttribute("data-item");
+      const itemPrice = parseFloat(button.getAttribute("data-price"));
+      const quantityInput = button.closest(".dish").querySelector(".quantity-input");
+      const quantity = parseInt(quantityInput.value);
+
+      // Add item to cart
+      const existingItem = cart.find((item) => item.name === itemName);
+      if (existingItem) {
+        existingItem.quantity += quantity;
+      } else {
+        cart.push({ name: itemName, price: itemPrice, quantity });
       }
-      localStorage.setItem('cart', JSON.stringify(cart));
-    }
 
-    function showPopupMessage(message) {
-      popupMessage.textContent = message;
-      popupMessage.style.display = 'block';
-      setTimeout(() => {
-        popupMessage.style.display = 'none';
-      }, 2000); // Popup will disappear after 2 seconds
-    }
-  
+      // Save cart to localStorage
+      localStorage.setItem("cart", JSON.stringify(cart));
 
-  window.addEventListener('scroll', () => {
-    const menuContainer = document.querySelector('.menu-container');
-    const menuOverlay = document.querySelector('.menu-overlay');
-    const scrollPosition = window.scrollY;
-    const logoHeight = document.querySelector('.logo1').offsetHeight;
-    const menuTop = menuContainer.getBoundingClientRect().top;
-
-    if (scrollPosition > 50) {
-      menuOverlay.style.opacity = '0.5';
-    } else {
-      menuOverlay.style.opacity = '1';
-    }
-
-    if (menuTop <= logoHeight) {
-      menuContainer.classList.add('hidden');
-    } else {
-      menuContainer.classList.remove('hidden');
-    }
+      // Show popup confirmation
+      showPopup(`${itemName} added to cart!`);
+    });
   });
 
+  // Event listeners for quantity buttons
+  document.querySelectorAll(".quantity").forEach((quantityContainer) => {
+    const decreaseBtn = quantityContainer.querySelector(".decrease-btn");
+    const increaseBtn = quantityContainer.querySelector(".increase-btn");
+    const quantityInput = quantityContainer.querySelector(".quantity-input");
 
+    decreaseBtn.addEventListener("click", () => {
+      const currentQuantity = parseInt(quantityInput.value);
+      if (currentQuantity > 1) {
+        quantityInput.value = currentQuantity - 1;
+      }
+    });
 
-
-  </script>
-
+    increaseBtn.addEventListener("click", () => {
+      const currentQuantity = parseInt(quantityInput.value);
+      quantityInput.value = currentQuantity + 1;
+    });
+  });
+</script>
 </body>
 </html>
