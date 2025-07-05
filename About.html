@@ -9,39 +9,256 @@
 <style>
 /* Global styles */
 body {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(vegetables-set-left-black-slate.jpg);
     font-family: 'Poppins', sans-serif;
-    /* background-image: url(''); Replace 'background-image.jpg' with your actual image path */
     background-size: cover;
-    background-attachment: fixed; /* Fix background image */
+    background-attachment: fixed;
     margin: 0;
     padding: 0;
-}
-.logo1 {
-        
-        padding-left: 20px;
-        padding-top: px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        /* background-color: rgb(164, 165, 160); */
-        height: 30px;
-        color: rgb(0, 0, 0);
-        /* margin-right: 30%; */
-        margin-top: 50px;
-        margin-left: 36.9%;
-    }
-    ul {
-    list-style: none;
-    padding: 0;
-    
+    min-height: 100vh;
+    color: rgb(238, 238, 88);
+  }
+
+  .popup {
+    position: fixed;
+    top: 85px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.9);
+    color: rgb(238, 238, 88);
+    padding: 15px 30px;
+    border-radius: 10px;
+    z-index: 1000;
+    display: none;
+    animation: slideDown 0.3s ease-out;
+    font-weight: 500;
+  }
+
+ /* Add these styles to your existing CSS to make the nav bar responsive */
+
+/* Navbar */
+.logo1 ul {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  gap: clamp(20px, 5vw, 40px);
 }
 
-li {
-    display: inline-block;
-    margin-right: 30px;
-    color: rgb(238,238, 88);
-    
+.logo1 ul li a {
+  text-decoration: none;
+  color: rgb(238, 238, 88);
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  transition: all 0.3s ease;
+  padding: 10px 20px;
+  border-radius: 25px;
+  letter-spacing: 1px;
+  font-weight: 500;
 }
+
+.logo1 ul li a:hover {
+  background-color: rgb(238, 238, 88);
+  color: black;
+  transform: translateY(-2px);
+}
+
+.logo1 {
+  display: flex;
+  justify-content: space-between; /* For large screens, use space-between */
+  align-items: center;
+  height: 70px;
+  color: rgb(238, 238, 88);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  padding: 0 20px;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+}
+
+.logo1 .menu {
+  display: flex;
+  gap: 25px;
+}
+
+.menu-icon {
+  display: none;
+  font-size: 2rem;
+  color: rgb(238, 238, 88);
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .logo1 {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .logo1 .menu {
+    display: none; /* Hide the menu by default */
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .logo1 .menu.active {
+    display: flex; /* Show the menu when 'active' class is added */
+  }
+
+  .menu-icon {
+    display: block; /* Show the menu icon (hamburger) */
+  }
+
+  .logo1 ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .logo1 ul li a {
+    font-size: 1.2rem;
+    padding: 12px 0;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+
+  h1 {
+    color: rgb(238, 238, 88);
+    text-align: center;
+    margin-top: 100px;
+    font-size: clamp(2rem, 4vw, 3rem);
+    letter-spacing: 2px;
+  }
+
+  .cart-container {
+    max-width: 1200px;
+    margin: auto;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    padding: clamp(20px, 4vw, 40px);
+    backdrop-filter: blur(10px);
+  }
+
+  .cart-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 15px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    border: 1px solid rgba(238, 238, 88, 0.1);
+  }
+
+  .cart-item img {
+    width: 150px;
+    height: 150px;
+    border-radius: 15px;
+    object-fit: cover;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  .item-name {
+    font-size: 1rem;
+    font-weight: 600;
+    color: rgb(238, 238, 88);
+  }
+
+  .item-price {
+    font-size: 1rem;
+    color: #ddd;
+  }
+
+  .item-quantity {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .item-quantity input {
+    width: 40px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 5px;
+    background: #fff;
+  }
+
+  .item-quantity button {
+    background: rgb(238, 238, 88);
+    color: black;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  .logo1 {
+  display: flex;
+  justify-content: center;   /* Center children horizontally */
+  align-items: center;       /* Center children vertically */
+  position: relative;        /* So we can position the menu-icon */
+}
+
+  .item-quantity button:hover {
+    background-color: rgb(255, 162, 0);
+  }
+
+  .total {
+    text-align: right;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 20px;
+    color: rgb(238, 238, 88);
+  }
+
+  .empty-cart {
+    text-align: center;
+    padding: 50px;
+    font-size: 1.2rem;
+    color: rgb(238, 238, 88);
+  }
+
+  button {
+    background: rgb(238, 238, 88);
+    color: black;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  button:hover {
+    background-color: rgb(255, 162, 0);
+  }
+  
+
+  @media (max-width: 768px) {
+    .cart-item {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .cart-item img {
+      width: 100%;
+      height: auto;
+    }
+
+    .item-quantity {
+      justify-content: center;
+    }
+
+    .total {
+      font-size: 1.2rem;
+    }
+  }
 .container {
     max-width: 800px;
     margin: 20px auto;
@@ -106,15 +323,19 @@ li:hover{
 </head>
 <body background="vegetables-set-left-black-slate.jpg">
     <div class="logo1">
-        <ul>
-          <b><li><a href="index.html">HOME</a></li>
+        <ul class="menu">
+          <li><a href="mainpage.html">HOME</a></li>
+          <li><a href="menu.html">MENU</a></li>
           <li><a href="About.html">ABOUT</a></li>
-          <li><a href="cart.html">CART</li>
+          <li><a href="cart.html">CART</a></li>
         </ul>
+        <div class="menu-icon">
+          <i class="fa fa-bars"></i>
         </div>
+      </div>
 
 <div class="container">
-    <br>
+   
     <h1>About Us</h1>
     <p>Welcome to Menu Mosaic!</p>
     
