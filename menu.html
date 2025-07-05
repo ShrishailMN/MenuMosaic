@@ -6,207 +6,296 @@
     <link rel="stylesheet" href="menu.css">
     <title>MenuMosaic | Menu</title>
     <style>
-    body {
+        body {
             font-family: 'Poppins', sans-serif;
-            /* background-image: url(''); Replace 'background-image.jpg' with your actual image path */
+            background-image: url('vegetables-set-left-black-slate.jpg');
             background-size: cover;
-            background-attachment: fixed; /* Fix background image */
+            background-position: center;
+            background-repeat: no-repeat;
             margin: 0;
             padding: 0;
-	   
-    }
-    .container1{
-        height: 4%;
-        width: 4%;
-        margin-left: 5%;
-        margin-top: 2%;
-        animation: move1 5s forwards; /* Apply animation */
-        animation-delay: 0s;
-        display: inline-block;
-    }
-    h4{
-        display: inline-block;
-        margin-left: 10%;
-        vertical-align: top;
-        margin-top: 5%;
-        text-justify: auto;
-        color: rgb(238, 238, 88);
-        text-align: justify;
-        animation-name: animate1;
-        animation: animate1 5s forwards;
-    }
-    @keyframes animate1 {
-        from {
-                transform: translateX(50%); /* Start off-screen to the left */
-                opacity: 0; /* Start with opacity 0 */
-            }
-            to {
-                transform: translateX(0); /* End at the original position */
-                opacity: 1; /* End with opacity 1 */
-            }
-    }
-    .container2{
-        height: 4%;
-        width: 4%;
-        margin-left: 20%;
-        margin-top: 2%;
-        animation: move2 5s forwards; /* Apply animation */
-        animation-delay: 0s;
-        display: inline-block;
-    }
-    .text1{
-        display: inline-block;
-        margin-left: 10%;
-        vertical-align: top;
-        margin-top: 5%;
-        text-align: justify;
-        color: rgb(238, 238, 88);
-    }
-    .container3{
-        height: 4%;
-        width: 4%;
-        margin-left: 5%;
-        margin-top: 2%;
-        animation: move3 5s forwards; /* Apply animation */
-        animation-delay: 0s;
-        display: inline-block;
-    }
-    .text2{
-        display: inline-block;
-        margin-left: 10%;
-        vertical-align: top;
-        margin-top: 5%;
-        text-align: justify;
-        color: rgb(238, 238, 88);
-    }
-    .container4{
-        height: 4%; 
-        width: 4%;
-        margin-left: 20%;
-        margin-top: 2%;
-        animation: move4 5s forwards; /* Apply animation */
-        animation-delay: 0s;
-        display: inline-block;
-    }
-    .logo1 {
-        
-        padding-left: 20px;
-        padding-top: px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        /* background-color: rgb(164, 165, 160); */
-        height: 30px;
-        color: rgb(0, 0, 0);
-        margin-right: 30%;
-        margin-top: 50px;
-        margin-left: 4%;
-    }
-    h5{
-        margin-left: 7%;
-        animation: move1 5s forwards; /* Apply animation */
-        animation-delay: 0s;
-        color: rgb(238, 238, 88);
-    }
-    .rh5{
-        margin-left: 22%;
-        animation: move22 5s forwards; /* Apply animation */
-        animation-delay: 0s;
-    }
-    .srh5{
-        margin-left: 5.9%;
-    }
-    .drh5{
-        margin-left: 20.9%;
-        animation: move22 5s forwards; /* Apply animation */
-        animation-delay: 0s;
-    }
-    img{
-        border: 2px solid rgb(0, 0, 0);
-    }
-    img:hover{
-        transform: scale(1.1);
-    }
-    @keyframes move1 {
+            min-height: 100vh;
+            color: rgb(238, 238, 88);
+        }
+
+        /* Header Styles */
+        .logo {
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            width: 90%;
+            margin: 0 auto;
+            position: relative;
+            z-index: 100;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            border-radius: 0 0 15px 15px;
+        }
+
+        .logo a {
+            color: rgb(238, 238, 88);
+            text-decoration: none;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            padding: 10px;
+            z-index: 1000;
+        }
+
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            gap: clamp(20px, 4vw, 40px);
+            margin: 0;
+            padding: 0;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .nav-menu li a {
+            color: rgb(238, 238, 88);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: clamp(1rem, 1.5vw, 1.2rem);
+            padding: 8px 16px;
+            border-radius: 25px;
+            position: relative;
+        }
+
+        .nav-menu li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: rgb(238, 238, 88);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-menu li a:hover {
+            color: rgb(238, 238, 88);
+        }
+
+        .nav-menu li a:hover::after {
+            width: 70%;
+        }
+
+        /* Menu Section Styling */
+        .menu-section {
+            display: flex;
+            align-items: flex-start;
+            margin: 2rem auto;
+            max-width: 1200px;
+            width: 90%;
+            gap: 2rem;
+        }
+
+        .container1, .container2, .container3, .container4 {
+            width: 150px;
+            height: 150px;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .menu-content {
+            flex-grow: 1;
+            margin-top: 1rem;
+        }
+
+        img {
+            border: 2px solid rgb(0, 0, 0);
+            border-radius: 50%;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        img:hover {
+            transform: scale(1.1);
+        }
+
+        h4, .text1, .text2 {
+            color: rgb(238, 238, 88);
+            margin: 0 0 1rem 0;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        h5 {
+            color: rgb(238, 238, 88);
+            margin: 0.5rem 0;
+            font-size: 1.2rem;
+        }
+
+        /* Animations */
+        .animate__fadeInLeft {
+            animation: move1 1s ease-out forwards;
+        }
+
+        .animate__fadeInRight {
+            animation: move2 1s ease-out forwards;
+        }
+
+        @keyframes move1 {
             from {
-                transform: translateX(-90%); /* Start off-screen to the left */
-                opacity: 0; /* Start with opacity 0 */
+                transform: translateX(-50px);
+                opacity: 0;
             }
             to {
-                transform: translateX(0); /* End at the original position */
-                opacity: 1; /* End with opacity 1 */
+                transform: translateX(0);
+                opacity: 1;
             }
         }
+
         @keyframes move2 {
             from {
-                transform: translateX(90%); /* Start off-screen to the left */
-                opacity: 0; /* Start with opacity 0 */
+                transform: translateX(50px);
+                opacity: 0;
             }
             to {
-                transform: translateX(0); /* End at the original position */
-                opacity: 1; /* End with opacity 1 */
+                transform: translateX(0);
+                opacity: 1;
             }
         }
-        @keyframes move3 {
-            from {
-                transform: translateX(-90%); /* Start off-screen to the left */
-                opacity: 0; /* Start with opacity 0 */
+
+        /* Tablet Responsive */
+        @media (max-width: 768px) {
+            .logo {
+                flex-direction: column;
+                text-align: center;
+                padding: 10px;
             }
-            to {
-                transform: translateX(0); /* End at the original position */
-                opacity: 1; /* End with opacity 1 */
+
+            .logo ul {
+                margin-top: 1rem;
+            }
+
+            .menu-section {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 1.5rem;
+            }
+
+            .container1, .container2, .container3, .container4 {
+                width: 120px;
+                height: 120px;
+            }
+
+            h4, .text1, .text2 {
+                font-size: 0.9rem;
+            }
+
+            h5 {
+                font-size: 1.1rem;
             }
         }
-        @keyframes move4 {
-            from {
-                transform: translateX(90%); /* Start off-screen to the left */
-                opacity: 0; /* Start with opacity 0 */
+
+        /* Mobile Responsive */
+        @media (max-width: 480px) {
+            .logo a {
+                font-size: 1.2rem;
             }
-            to {
-                transform: translateX(0); /* End at the original position */
-                opacity: 1; /* End with opacity 1 */
+
+            .logo ul li a {
+                font-size: 0.9rem;
+            }
+
+            .menu-section {
+                gap: 1rem;
+            }
+
+            .container1, .container2, .container3, .container4 {
+                width: 100px;
+                height: 100px;
+            }
+
+            h4, .text1, .text2 {
+                font-size: 0.8rem;
+            }
+
+            h5 {
+                font-size: 1rem;
             }
         }
-        @keyframes move22 {
-            from {
-                transform: translateX(30%); /* Start off-screen to the left */
-                opacity: 0; /* Start with opacity 0 */
+
+        /* Small Mobile Responsive */
+        @media (max-width: 320px) {
+            .container1, .container2, .container3, .container4 {
+                width: 80px;
+                height: 80px;
             }
-            to {
-                transform: translateX(0); /* End at the original position */
-                opacity: 1; /* End with opacity 1 */
+
+            h4, .text1, .text2 {
+                font-size: 0.7rem;
+            }
+
+            h5 {
+                font-size: 0.9rem;
             }
         }
     </style>
 </head>
-<body background="vegetables-set-left-black-slate.jpg" >
-    <div class="logo1">
-		<b><a href="menu.html">MENU MOSAIC</b>
-		<ul>
-            <b><li><a href="index.html">HOME</a></li>
-                <li><a href="menu.html">MENU</a></li>
-                <li><a href="About.html">ABOUT</a></li></b>
-		</ul>
-	  </div>
-    <div class="container1">
-        <a href="QuickBites.html"><img src="mpizza.jpeg" alt="Pizza" style="border-radius: 50%;" height="250%" width="250%";></a>
+<body>
+    <!-- Header Section -->
+    <div class="logo">
+        <a href="mainpage.html"><b>MENU MOSAIC</b></a>
+        <button class="hamburger" onclick="toggleMenu()">&#9776;</button>
+        <ul class="nav-menu">
+            <li><a href="mainpage.html">HOME</a></li>
+            <li><a href="menu.html">MENU</a></li>
+            <li><a href="About.html">ABOUT</a></li>
+        </ul>
     </div>
-    <h4>Explore pizzas, burgers, sushi, ramen, and more.<br> Satisfy cravings quickly with our flavorful options.<br> Convenient and delicious bites for every taste.</h4>
-    <h5>Quick Bites</h5>
-    <div class="container2">
-        <a href="Mocktails.html"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMgl0PH_duNUZyou7BKhX6IkfNNCkAL1WgfVor38fvf2KkFzAt3uRwkiAsdO17JzupE18&usqp=CAU" alt="Pizza" style="border-radius: 50%;" height="250%" width="250%";></a>
+
+    <!-- Menu Section -->
+    <div class="menu-section">
+        <div class="container1 animate__fadeInLeft">
+            <a href="QuickBites.html">
+                <img src="mpizza.jpeg" alt="Pizza">
+            </a>
+        </div>
+        <div class="menu-content">
+            <h5 class="animate__fadeInLeft">Quick Bites</h5>
+            <h4 class="animate__fadeInRight">Explore pizzas, burgers, sushi, ramen, and more.<br> Satisfy cravings quickly with our flavorful options.<br> Convenient and delicious bites for every taste.</h4>
+        </div>
     </div>
-    <h4 class="text1">Revitalize with our refreshing menu.From <br>fruit-infused drinks to energizing teas, our<br> beverages are perfect for rejuvenating your day. </h4>
-    <h5 class="rh5">Refreshers</h5>
-    <div class="container3">
-        <a href="Soups.html"><img src="https://img.fixthephoto.com/blog/images/gallery/news_preview_mob_image__preview_13594.jpg" alt="Pizza" style="border-radius: 50%;" height="250%" width="250%";></a>
+
+    <div class="menu-section">
+        <div class="container2 animate__fadeInRight">
+            <a href="Mocktails.html">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMgl0PH_duNUZyou7BKhX6IkfNNCkAL1WgfVor38fvf2KkFzAt3uRwkiAsdO17JzupE18&usqp=CAU" alt="Mocktails">
+            </a>
+        </div>
+        <div class="menu-content">
+            <h5 class="animate__fadeInRight">Refreshers</h5>
+            <h4 class="text1 animate__fadeInLeft">Revitalize with our refreshing menu.<br>From fruit-infused drinks to energizing teas, our<br> beverages are perfect for rejuvenating your day.</h4>
+        </div>
     </div>
-    <h4 class="text2">Warm up with our comforting selection. From hearty<br> broths to creamy delights, our soups are crafted to<br> soothe and satisfy.</h4>
-    <h5 class="srh5">Simmering Bowls</h5>
-    <div class="container4">
-        <a href="Desserts.html"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGD1phTag8w4XJTLV90soo9CVOrzctRL86jg&usqp=CAU" alt="Pizza" style="border-radius: 50%;" height="250%" width="250%";></a>
+
+    <div class="menu-section">
+        <div class="container3 animate__fadeInLeft">
+            <a href="Soups.html">
+                <img src="https://img.fixthephoto.com/blog/images/gallery/news_preview_mob_image__preview_13594.jpg" alt="Soups">
+            </a>
+        </div>
+        <div class="menu-content">
+            <h5 class="animate__fadeInLeft">Soups</h5>
+            <h4 class="text2 animate__fadeInRight">Warm up with hearty soups.<br>Our freshly made varieties are perfect for any season.<br> Nourish your body and soul with each spoonful.</h4>
+        </div>
     </div>
-    <h4>Indulge in sweet bliss with our delectable treats.<br> From creamy cheesecakes to decadent tiramisu,<br> our desserts are crafted to satisfy your cravings. </h4>
-    <h5 class="drh5">Dessert Delights</h5>
 </body>
 </html>
