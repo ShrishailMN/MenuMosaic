@@ -1,64 +1,284 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-	<title>HOME</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
-	<script src="menu.js"></script>
-    <script src="controller.js"></script>
-	<link rel="stylesheet" href="menu.css">
-	<style>
-	h1 {
-            overflow: hidden; /* Hide overflowing content */
-            white-space: nowrap; /* Prevent text from wrapping */
-            animation: slideInAnimation 2s forwards; /* Apply animation */
-            animation-delay: 1.5s; /* Delay the animation */
-            opacity: 0; /* Initially hide the text */
+    <title>MenuMosaic | Home</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        @keyframes slideInAnimation {
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #333;
+            background-image: url('vegetables-set-left-black-slate.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            min-height: 100vh;
+            color: rgb(238, 238, 88);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Enhanced Header and Navigation */
+        .logo {
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            width: 90%;
+            margin: 0 auto;
+            position: relative;
+            z-index: 100;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            border-radius: 0 0 15px 15px;
+        }
+
+        .logo a {
+            color: rgb(238, 238, 88);
+            text-decoration: none;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            padding: 10px;
+            z-index: 1000;
+        }
+
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            gap: clamp(20px, 4vw, 40px);
+            margin: 0;
+            padding: 0;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .nav-menu li a {
+            color: rgb(238, 238, 88);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: clamp(1rem, 1.5vw, 1.2rem);
+            padding: 8px 16px;
+            border-radius: 25px;
+            position: relative;
+        }
+
+        .nav-menu li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: rgb(238, 238, 88);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-menu li a:hover {
+            color: rgb(238, 238, 88);
+        }
+
+        .nav-menu li a:hover::after {
+            width: 70%;
+        }
+
+        /* Enhanced Content Styles */
+        .content-wrapper {
+            max-width: 1400px;
+            width: 90%;
+            margin: 0 auto;
+            padding: clamp(40px, 8vw, 80px) clamp(20px, 4vw, 40px);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .content-wrapper h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            animation: slideUp 1s ease-out;
+        }
+
+        .content-wrapper h4 {
+            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+            margin-bottom: 1.5rem;
+            color: #fff;
+            animation: slideUp 1s ease-out 0.2s backwards;
+        }
+
+        .content-wrapper .order {
+            margin-top: 2rem;
+            animation: slideUp 1s ease-out 0.4s backwards;
+        }
+
+        .content-wrapper button {
+            padding: 15px 30px;
+            font-size: clamp(1rem, 1.5vw, 1.2rem);
+            background: rgb(238, 238, 88);
+            color: #333;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+            animation: slideUp 1s ease-out 0.6s backwards;
+        }
+
+        .content-wrapper button:hover {
+            background: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
             from {
-                transform: translateX(-20%); /* Start off-screen to the left */
-                opacity: 0; /* Start with opacity 0 */
+                opacity: 0;
+                transform: translateY(30px);
             }
             to {
-                transform: translateX(0); /* End at the original position */
-                opacity: 1; /* End with opacity 1 */
+                opacity: 1;
+                transform: translateY(0);
             }
         }
-	h4{
-			overflow: hidden; /* Hide overflowing content */
-            white-space: nowrap; /* Prevent text from wrapping */
-            animation: slideInAnimation 2s forwards; /* Apply animation */
-            animation-delay: 2s; /* Delay the animation */
-            opacity: 0; /* Initially hide the text */
-	}
-    .order,button{
-            overflow: hidden; /* Hide overflowing content */
-            white-space: nowrap; /* Prevent text from wrapping */
-            animation: slideInAnimation 2s forwards; /* Apply animation */
-            animation-delay: 4s; /* Delay the animation */
-            opacity: 0; /* Initially hide the text */
-    }
-    body{
-        font-family: 'Poppins', sans-serif;
-    }
-	</style>
+
+        /* Mobile Styles */
+        @media screen and (max-width: 768px) {
+            .hamburger {
+                display: block;
+                position: fixed;
+                top: 20px;
+                right: 20px;
+            }
+
+            .nav-menu {
+                position: fixed;
+                left: 0;
+                top: 0;
+                flex-direction: column;
+                background: rgba(0, 0, 0, 0.95);
+                backdrop-filter: blur(10px);
+                width: 100%;
+                height: 100vh;
+                padding: 100px 20px;
+                justify-content: flex-start;
+                align-items: center;
+                gap: 40px;
+                transform: translateY(-100%);
+                transition: transform 0.3s ease-in-out;
+            }
+
+            .nav-menu.active {
+                transform: translateY(0);
+            }
+
+            .nav-menu li {
+                opacity: 0;
+                transform: translateY(20px);
+                transition: all 0.3s ease-in-out;
+            }
+
+            .nav-menu.active li {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            .nav-menu li:nth-child(1) { transition-delay: 0.1s; }
+            .nav-menu li:nth-child(2) { transition-delay: 0.2s; }
+            .nav-menu li:nth-child(3) { transition-delay: 0.3s; }
+
+            .hamburger i {
+                transition: transform 0.3s ease-in-out;
+            }
+
+            .hamburger.active i.fa-bars {
+                display: none;
+            }
+
+            .hamburger.active i.fa-times {
+                display: block;
+            }
+
+            .hamburger i.fa-times {
+                display: none;
+            }
+
+            .content-wrapper {
+                padding-top: 100px;
+            }
+        }
+    </style>
 </head>
-<body background="vegetables-set-left-black-slate.jpg">
-	
-	<div class="logo">
-		<b><a href="menu.html">MENU MOSAIC</b>
-		<ul>
-		  <b><li><a href="Home.html">HOME</a></li>
-		  <li><a href="About.html">ABOUT</a></li>
-		  <li><a href="Contact.html">CONTACT US</a></li></b>
-		</ul>
-	  </div>
-<h1 style="margin-top: 10%; margin-left: 5%; color: rgb(238, 238, 88); font-size:xxx-large;">Welcome Back to<br> MenuMosaic</h1>
-<h4 style="margin-left: 5%; color: rgb(238, 238, 88);">Discover a tantalizing tapestry <br>of flavors in our Menu Mosaic.</h4>
-<br>
-<br>
-<br><br><br>
-<h4 style="margin-left: 5%; color:rgb(238, 238, 88) ;" class="order">Craving something specific? Place your order now!</h4><br>
-<a href="menu.html"><button style="background-color: rgb(238, 238, 88); margin-left: 5%; height: 5%;">Order Now</button></a>
+<body>
+    <div class="logo">
+        <a href="menu.html">MENU MOSAIC</a>
+        <button class="hamburger" aria-label="Menu">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-times"></i>
+        </button>
+        <ul class="nav-menu">
+            <li><a href="mainpage.html">HOME</a></li>
+            <li><a href="about.html">ABOUT</a></li>
+            <li><a href="contact.html">CONTACT US</a></li>
+        </ul>
+    </div>
 
+    <div class="content-wrapper">
+        <h1>Welcome Back to<br> MenuMosaic</h1>
+        <h4>Discover a tantalizing tapestry<br>of flavors in our Menu Mosaic.</h4>
+        <h4 class="order">Craving something specific? Place your order now!</h4>
+        <a href="menu.html">
+            <button>Order Now</button>
+        </a>
+    </div>
 
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        const body = document.body;
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : 'auto';
+        });
+
+        document.querySelectorAll('.nav-menu li a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+                body.style.overflow = 'auto';
+            });
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+                body.style.overflow = 'auto';
+            }
+        });
+    </script>
+</body>
+</html>
